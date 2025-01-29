@@ -32,7 +32,7 @@ const Contact = () => {
             <input type="tel" name='phone' placeholder='Enter Your mobile Number'/>
             <label >Write your message here</label>
             <textarea name="message" rows='6' id="" placeholder='Enter your message'></textarea>
-            <button type='submit' className='btn dark-btn'>Submit <img src={white_arrow} alt="" /></button>
+            <button type='submit' onSubmit={()=>window.alert("Your Responce is Taken...!! We will GEt Back To You...!! Thank You..!!")} className='btn dark-btn'>Submit <img src={white_arrow} alt="" /></button>
         </form>
         <span></span>
       </div>

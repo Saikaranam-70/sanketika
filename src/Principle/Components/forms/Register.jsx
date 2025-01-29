@@ -7,10 +7,11 @@ const Register = ({showLoginHandler}) => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [collegeId, setCollegeId] = useState("");
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleLogin = async(e)=>{
         e.preventDefault();
-
+        setIsLoading(true)
         try {
             const responce = await fetch(`${API_URL}/principle/register`,{
                 method : 'POST',
@@ -29,6 +30,7 @@ const Register = ({showLoginHandler}) => {
                 alert(" Principal Register successfully..........!!!!!")
                 showLoginHandler();
                 
+                
             }else {
                 alert("Email Already Taken Or Principal Of The Sankethika college is Already Exists");
 
@@ -38,6 +40,8 @@ const Register = ({showLoginHandler}) => {
         } catch (error) {
             console.log(error);
             alert("Registration failed..........!!!")
+        }finally{
+            setIsLoading(false)
         }
     }
 
@@ -57,6 +61,7 @@ const Register = ({showLoginHandler}) => {
             <input type="text" name='collegeId' id="" value={collegeId} onChange={(e)=>setCollegeId(e.target.value)} placeholder='Enter CollegeId...!!'/>
             <div className="submitBtn">
                 <button type='submit'>Submit</button>
+                {isLoading && <div className="spinner"></div>} {/* Show spinner when loading */}
             </div>
         </form>
     </div>

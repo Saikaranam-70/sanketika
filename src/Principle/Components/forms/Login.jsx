@@ -5,9 +5,11 @@ import ResetPassword from '../ResetPassword';
 const Login = ({resetPassword}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false)
 
     const logingHandler = async(e)=>{
         e.preventDefault();
+        setLoading(true)
         try {
             const responce = await fetch(`${API_URL}/principle/login`, {
                 method: 'POST',
@@ -34,6 +36,8 @@ const Login = ({resetPassword}) => {
             window.location.reload();
         } catch (error) {
             console.log(error)
+        }finally{
+          setLoading(false)
         }
     }
   return (
@@ -46,6 +50,7 @@ const Login = ({resetPassword}) => {
         <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} name='password' placeholder='enter your email'/>
         <div className="submitBtn">
             <button type='submit'>Submit</button>
+            {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
         </div><br />
         <div className="resetPassword">
           <h4 style={{color:'red', letterSpacing: '2px'}} onClick={resetPassword}>Reset Password</h4>

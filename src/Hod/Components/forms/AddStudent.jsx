@@ -9,9 +9,11 @@ const AddStudent = () => {
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
   const [email, setEmail] = useState("");
+  const [ loading, setLoading] = useState(false)
 
   const AddStudenthandle = async(e)=>{
     e.preventDefault();
+    setLoading(true)
     try {
       const hodToken = localStorage.getItem('hodToken')
       if(!hodToken){
@@ -48,6 +50,8 @@ const AddStudent = () => {
       }
     } catch (error) {
       alert("Adding Student Failed")
+    }finally{
+      setLoading(false)
     }
   }
   return (
@@ -70,6 +74,7 @@ const AddStudent = () => {
         <input type="file" name="profilePic" id="" onChange={(e)=>setFile(e.target.files[0])}/>
         <div className="submitBtn">
             <button type='submit'>Submit</button>
+            {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
         </div>
       </form>
     </div>

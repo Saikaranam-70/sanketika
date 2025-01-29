@@ -4,9 +4,11 @@ import { API_URL } from '../../../Principle/data/dataApi';
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false)
 
     const handleLogin = async(e)=>{
         e.preventDefault();
+        setLoading(true)
     try {
       const responce = await fetch(`${API_URL}/student/login`, {
         method:'POST',
@@ -30,6 +32,8 @@ const Login = () => {
     } catch (error) {
       alert("Logi failed...!!!!!1")
       console.log(error)
+    }finally{
+      setLoading(false)
     }
     }
     return (
@@ -42,6 +46,7 @@ const Login = () => {
             <input type="password"  name='password' value={password} onChange={(e)=> setPassword(e.target.value)} placeholder='enter your email'/>
             <div className="submitBtn">
                 <button type='submit'>Submit</button>
+                {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
             </div>
           </form>
         </div>

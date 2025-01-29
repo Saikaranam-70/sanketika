@@ -5,6 +5,7 @@ const AddNotification = () => {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [file, setFile] = useState(null);
+    const [loading, setLoading] = useState(false)
 
     //const handleImageUpload = (event)=>{
     //    setFile(event.target.files);
@@ -12,7 +13,7 @@ const AddNotification = () => {
 
     const handleNotificationSubmit = async(e)=>{
         e.preventDefault();
-
+        setLoading(true)
         try {
             const loginToken = localStorage.getItem('loginToken');
             if(!loginToken){
@@ -44,6 +45,8 @@ const AddNotification = () => {
         } catch (error) {
             console.log(error)
             alert("failed to adding notification")
+        }finally{
+            setLoading(false)
         }
     }
 
@@ -59,6 +62,7 @@ const AddNotification = () => {
         <input type="file" className='file' name="content" id="" accept='application/pdf' onChange={(e)=>setFile(e.target.files[0])} /><br />
         <div className="submitBtn">
             <button type='submit'>submit</button>
+            {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
         </div>
       </form>
     </div>

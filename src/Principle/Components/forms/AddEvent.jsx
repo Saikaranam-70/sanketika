@@ -10,6 +10,8 @@ const AddEvent = () => {
     const [sports, setSports] = useState([]);
     const [file, setFile] = useState(null)
     const [contact, setContact] = useState(null);
+    const [loading, setLoading] = useState(false)
+  
 
     const handleCultureChange = (event)=>{
         const value = event.target.value;
@@ -37,6 +39,7 @@ const AddEvent = () => {
 
     const handleEventSubmit = async(e)=>{
         e.preventDefault();
+        setLoading(true)
         try {
             const loginToken = localStorage.getItem('loginToken');
             if(!loginToken){
@@ -79,6 +82,8 @@ const AddEvent = () => {
         } catch (error) {
             alert("Adding Events Failed.....!!!!!!")
             console.log(error)
+        }finally{
+          setLoading(false)
         }
     }
 
@@ -159,6 +164,7 @@ const AddEvent = () => {
           <input type="file" name="bannerImage"  onChange={handleImageHandler} id="" />
           <div className="submitBtn btn">
             <button type='submit'>submit</button>
+            {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
         </div>
       </form>
     </div>

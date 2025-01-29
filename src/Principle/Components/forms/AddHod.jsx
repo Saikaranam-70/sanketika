@@ -8,9 +8,11 @@ const AddHod = () => {
     const [name, setName] = useState("");
     const [branch, setBranch] = useState("");
     const [file, setFile] = useState(null);
+    const [loading, setLoading] = useState(false)
     
     const handleHodRegister = async(e)=>{
         e.preventDefault();
+        setLoading(true)
 
         const loginToken = localStorage.getItem('loginToken')
 
@@ -44,6 +46,7 @@ const AddHod = () => {
             setFile(null)
         }
 
+        setLoading(false)
     }
   return (
     <div className='registerSection Notification-Section'>
@@ -63,6 +66,7 @@ const AddHod = () => {
             <input type="file" accept='image/jpg' name="profile" id="" onChange={(e)=>setFile(e.target.files[0])}/>
             <div className="submitBtn">
                 <button type='submit'>Submit</button>
+                {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
             </div>
         </form>
     </div>

@@ -5,9 +5,11 @@ const AddAttendence = () => {
   const [branch, setBranch] = useState("");
   const [section, setSection] = useState("");
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false)
 
   const handleAddAttendence = async(e)=>{
     e.preventDefault();
+    setLoading(true)
 
     try {
       const hodToken = localStorage.getItem('hodToken')
@@ -36,6 +38,8 @@ const AddAttendence = () => {
       }
     } catch (error) {
       alert("Adding Attendence is failed")
+    }finally{
+      setLoading(false)
     }
   }
   return (
@@ -50,6 +54,7 @@ const AddAttendence = () => {
         <input type="file" name="attendencePdf" id="" onChange={(e)=>setFile(e.target.files[0])} />
         <div className="submitBtn">
             <button type='submit'>Submit</button>
+            {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
         </div>
       </form>
     </div>

@@ -6,9 +6,11 @@ const AddFeedBack = () => {
   const [section, setSection] = useState("")
   const [name, setName] = useState("")
   const [feed, setFeed] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const feedBack = async(e)=>{
     e.preventDefault();
+    setLoading(true)
     const studentToken = localStorage.getItem('studentToken')
     try {
       const responce = await fetch(`${API_URL}/feedback/add-feedback`, {
@@ -31,6 +33,8 @@ const AddFeedBack = () => {
     } catch (error) {
       alert("Adding Feed back is Failed...!!!")
       console.log(error)
+    }finally{
+      setLoading(false)
     }
   }
   return (
@@ -48,6 +52,7 @@ const AddFeedBack = () => {
         <textarea name="feed" value={feed} onChange={(e)=>setFeed(e.target.value)}  placeholder='Enter Your Feed Back Here..!!!' id=""></textarea>
         <div className="submitBtn">
             <button type='submit'>Submit</button>
+            {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
         </div>
       </form>
     </div>

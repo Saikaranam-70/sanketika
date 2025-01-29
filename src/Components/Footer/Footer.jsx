@@ -2,9 +2,10 @@ import React from 'react'
 import './Footer.css'
 
 const Footer = () => {
+
   return (
     <div className='footer'>
-      <p>@ 2024 Sankethika. All rights reserved</p>
+      <p>@ 2025 Sankethika. All rights reserved</p>
       <ul>
         <li>Terms of Services</li>
         <li>Privacy Policy</li>
