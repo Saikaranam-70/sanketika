@@ -30,7 +30,7 @@ const Navbar = () => {
             <li><ScrollLink to='program' smooth={true} offset={-260} duration={500}>Program</ScrollLink></li>
             <li><ScrollLink to='about' smooth={true} offset={-150} duration={500}>About us</ScrollLink></li>
             <li><ScrollLink to='campus' smooth={true} offset={-260} duration={500}>Campus</ScrollLink></li>
-            <li><ScrollLink to='testimonials' smooth={true} offset={-260} duration={500}>Testimonials</ScrollLink></li>
+            {/* <li><ScrollLink to='testimonials' smooth={true} offset={-260} duration={500}>Testimonials</ScrollLink></li> */}
             <li><RouterLink to='/hod'>Hod Login</RouterLink></li>
             <li><RouterLink to='/student'>Student Login</RouterLink></li>
             <li><RouterLink to='/principal'>Principal Login</RouterLink></li>
