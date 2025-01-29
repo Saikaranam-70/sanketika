@@ -1,6 +1,6 @@
 import React from 'react'
 import './About.css'
-import about_img from '../../assets/about.png'
+import about_img from '../../assets/bg.jpg'
 import play_icon from '../../assets/play-icon.png'
 
 const About = ({setVideo}) => {
@@ -13,9 +13,7 @@ const About = ({setVideo}) => {
       <div className="about-right">
       <h3>ABOUT COLLEGE</h3>
       <h2>Nurturing Tomorrow's Leaders Today</h2>
-      <p>Embark on a transformative educational journey with our university's comprehensive
-         education programs. Our cutting-edge curriculum is designed to empower students with
-          the knowledge, skills, and experiences needed to excel in the dynamic field of education.
+      <p>Sanketika Polytechnic College, with over 15 years of academic excellence, is renowned for its commitment to quality education in engineering and technology. Established in 2009, the college offers a vibrant campus life, fostering innovation and holistic development among its students.
           </p>
           <p>
           With a focus on innovation, hands-on learning, and personalized mentorship,

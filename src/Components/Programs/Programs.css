@@ -54,3 +54,13 @@
         margin: 20px;
     }
 }
+.btn-div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-div .btn{
+    background-color: black;
+    color: white;
+}

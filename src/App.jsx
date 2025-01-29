@@ -28,8 +28,8 @@ const App = () => {
         <About setVideo = {setVideo}/>
         <Title subTitle = 'Gallery' title = 'Campus Photos' />
         <Campus />
-        <Title subTitle = 'TESTIMONIALS' title = 'What Students Says' />
-        <Testimonials />
+        {/* <Title subTitle = 'TESTIMONIALS' title = 'What Students Says' />
+        <Testimonials /> */}
         <Title subTitle = 'Contact Us' title = 'Get in Touch' />
         <Contact />
         <Footer />

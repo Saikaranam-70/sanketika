@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
-import logo from '../../assets/sankethika2.png'
+import logo from '../../assets/logo copy.png'
 import { Link as ScrollLink } from 'react-scroll';
 import menu from '../../assets/menu-icon.png'
 import { Link as RouterLink } from 'react-router-dom';
