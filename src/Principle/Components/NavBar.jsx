@@ -3,7 +3,7 @@ import React from 'react'
 const NavBar = ({showLoginHandler, showLogOut,showRegisterHandler, logOutHandler}) => {
   const principleName = localStorage.getItem('name')
   return (
-    <div className='navbar'>
+    <div className='navbar' style={{marginTop:'170px'}}>
       <div className="Principle">
         <h3>Principal Dashboard</h3>
       </div>

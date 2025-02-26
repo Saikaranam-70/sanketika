@@ -23,18 +23,20 @@ const App = () => {
     <div>
       <Hero />
       <div className="container">
+      <About />
         <Title subTitle = 'Our Courses' title = 'What We Offer' />
         <Programs />
-        <About setVideo = {setVideo}/>
+        
         <Title subTitle = 'Gallery' title = 'Campus Photos' />
         <Campus />
         {/* <Title subTitle = 'TESTIMONIALS' title = 'What Students Says' />
         <Testimonials /> */}
         <Title subTitle = 'Contact Us' title = 'Get in Touch' />
         <Contact />
-        <Footer />
+        
       </div>
-      <Video video={video} setVideo={setVideo}/>
+      
+      
     </div>
   )
 }

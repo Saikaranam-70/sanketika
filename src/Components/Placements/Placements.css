@@ -1,0 +1,183 @@
+.placements-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    padding-top: 150px;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tabs button.active {
+    background-color: #2980b9;
+  }
+  
+  .tabs button:hover {
+    background-color: #2980b9;
+  }
+  
+  .content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .placements-content h2,
+  .gallery-content h2,
+  .companies-content h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+  }
+  
+  .placement-year {
+    margin-bottom: 30px;
+  }
+  
+  .placement-year h3 {
+    font-size: 20px;
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  table tfoot td {
+    background-color: #f1f1f1;
+    font-weight: bold;
+  }
+  
+  .pdf-section {
+    margin-top: 30px;
+  }
+  
+  .pdf-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .pdf-buttons button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pdf-buttons button:hover {
+    background-color: #2980b9;
+  }
+  
+  .pdf-viewer {
+    margin-top: 20px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .pdf-viewer iframe {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .gallery-item {
+    text-align: center;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item img:hover {
+    transform: scale(1.05);
+  }
+  
+  .gallery-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #34495e;
+  }
+  
+  .company-banner img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .tabs button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+    .placements-container{
+        padding-top: 100px;
+    }
+  
+    .gallery-images {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tabs button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+    .placements-container{
+        padding-top: 100px;
+    }
+  
+    .gallery-images {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+  }

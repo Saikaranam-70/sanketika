@@ -6,7 +6,7 @@ const Navbar = ({showLoginHandler, logOutHandler, logOut}) => {
   
   const hodName = localStorage.getItem('hodName')
     return (
-        <div className='navbar navbar-sidebar'>
+        <div className='navbar navbar-sidebar' style={{marginTop:'170px'}}>
           
           <div className="Principle">
             <h3>HOD Dashboard</h3>

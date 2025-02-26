@@ -1,0 +1,80 @@
+/* Base Styles */
+.cme-container {
+    max-width: 1200px;
+    margin: 150px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .cme-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .cme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .cme-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+  }
+  
+  .cme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cme-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .cme-content {
+    padding: 20px;
+  }
+  
+  .cme-content h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .cme-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .cme-title {
+      font-size: 2rem;
+    }
+  
+    .cme-content h3 {
+      font-size: 1.3rem;
+    }
+  
+    .cme-content p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cme-title {
+      font-size: 1.8rem;
+    }
+  
+    .cme-grid {
+      grid-template-columns: 1fr;
+    }
+  }

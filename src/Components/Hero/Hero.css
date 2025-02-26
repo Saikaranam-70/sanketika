@@ -1,4 +1,4 @@
-.hero{
+/* .hero{
     width: 100%;
     min-height: 100vh;
     
@@ -46,5 +46,95 @@
     .hero-text p{
         font-size: 14px;
         margin:15px auto
+    }
+} */
+
+.home {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/bg.jpg);
+    /* background-position: center; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(5px); 
+    z-index: -1;
+}
+
+
+.home-section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: rgb(255, 255, 255);
+}
+.clg-Head{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+}
+.clg-description{
+    text-align: center;
+    font-size: 20px;
+}
+
+.courses-offer {
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: coral;
+    backdrop-filter: blur;
+    border: none;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.courses-offer:hover {
+    background-color: inherit;
+    transform: translateY(-3px);
+}
+
+.courses-offer:active {
+    transform: translateY(0);
+    background-color: #c88d0b;
+}
+
+
+@media (max-width: 768px){
+    .home-section{
+        margin-top: 120px;
+        text-align: center;
+        height: 70%;
+    }
+
+
+    .clg-Head{
+        font-size: 35px;
+        color: black;
+    }
+    .clg-description{
+        font-size: 17px;
+        color: white;
     }
 }

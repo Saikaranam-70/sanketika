@@ -12,8 +12,20 @@ import gallery_9 from "../../assets/lab1.jpeg";
 import gallery_10 from "../../assets/logo2.png";
 import gallery_11 from "../../assets/mech-lab.jpeg";
 import gallery_12 from "../../assets/sankethika-hero.jpeg";
+import gallery_13 from "../../assets/pic1.jpg";
+import gallery_14 from "../../assets/pic2.jpg";
+import gallery_15 from "../../assets/pic3.jpg";
+import gallery_16 from "../../assets/pic4.png";
+import gallery_17 from "../../assets/pic5.png";
+import gallery_18 from "../../assets/pic6.png";
+import gallery_19 from "../../assets/pic1.jpg";
+import gallery_20 from "../../assets/pic9.png";
+import gallery_21 from "../../assets/pic10.png";
 
-const images = [gallery_1, gallery_2, gallery_3, gallery_4, gallery_5, gallery_6, gallery_7, gallery_8, gallery_9, gallery_10, gallery_11, gallery_12];
+
+
+
+const images = [gallery_1, gallery_2, gallery_3, gallery_4, gallery_5, gallery_6, gallery_7, gallery_8, gallery_9, gallery_10, gallery_11, gallery_12, gallery_13, gallery_14, gallery_15, gallery_16, gallery_17, gallery_18, gallery_19, gallery_20, gallery_21];
 
 const Gallery = () => {
   return (

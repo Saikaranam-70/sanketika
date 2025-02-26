@@ -1,66 +1,128 @@
-.programs{
+.programs-container {
     margin: 80px auto;
     width: 90%;
+    max-width: 1200px;
+  }
+  
+  .programs {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.programs img{
+    gap: 20px;
+  }
+  
+  .program {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .program img {
     width: 100%;
     border-radius: 10px;
     display: block;
-}
-.program{
-    margin: 10px;
-    flex-basis: 31;
-    position: relative;
-}
-.caption{
-    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .program:hover img {
+    transform: scale(1.1);
+  }
+  
+  .caption {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
     right: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     color: white;
-    cursor: pointer;
-    background-color: rgba(0, 15, 152, 0.3);
+    background-color: rgba(0, 15, 152, 0.7);
     opacity: 0;
+    transition: opacity 0.4s ease, padding-top 0.4s ease;
     padding-top: 70%;
-    transition: 0.4s;
-}
-.caption img{
+  }
+  
+  .caption img {
     width: 60px;
-    margin-bottom:10px ;
-}
-.program:hover .caption{
+    margin-bottom: 10px;
+  }
+  
+  .program:hover .caption {
     opacity: 1;
     padding-top: 0;
-}
-
-
-
-
-@media (max-width:650px){
-    .programs{
-        flex-direction: column;
-    }
-    .program{
-        flex-basis: 100%;
-        margin: 20px;
-    }
-}
-.btn-div
-{
+  }
+  
+  .btn-div {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.btn-div .btn{
+    margin-top: 40px;
+  }
+  
+  .btn-div .btn {
     background-color: black;
     color: white;
-}
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-div .btn:hover {
+    background-color: #333;
+  }
+  
+  .btn-div .btn img {
+    width: 20px;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .programs {
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    .program {
+      flex-basis: 100%;
+      margin: 0;
+    }
+  
+    .caption {
+      padding-top: 50%;
+    }
+  
+    .btn-div .btn {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .programs-container {
+      margin: 40px auto;
+    }
+  
+    .caption img {
+      width: 50px;
+    }
+  
+    .caption p {
+      font-size: 14px;
+    }
+  
+    .btn-div .btn {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  }

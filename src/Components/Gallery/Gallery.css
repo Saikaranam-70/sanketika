@@ -1,7 +1,7 @@
 .gallery-container {
     padding: 20px;
     text-align: center;
-    margin-top: 150px;
+    padding-top: 150px;
   }
   
   .gallery-title {
@@ -44,6 +44,9 @@
   @media (max-width: 480px) {
     .gallery-grid {
       grid-template-columns: repeat(1, 1fr);
+    }
+    .gallery-container {
+      padding-top: 100px;
     }
   }
   

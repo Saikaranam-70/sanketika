@@ -1,0 +1,116 @@
+/* General styles for the cards container */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Adds space between cards */
+    padding: 40px 20px; /* Padding around the container */
+    background-color: #f8f9fa; /* Light background for the container */
+    padding-top: 150px;
+  }
+  
+  /* Styles for individual cards */
+  .card {
+    background-color: #fff; /* White background for cards */
+    border: 1px solid #e0e0e0; /* Light border */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 25px;
+    width: 320px; /* Fixed width for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    text-align: left; /* Left-align text for better readability */
+    overflow: hidden; /* Hide overflow content */
+  }
+  
+  /* Expanded card style */
+  .card.expanded {
+    height: auto; /* Allow the card to expand */
+  }
+  
+  /* Styles for images inside cards */
+  .card-image {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensures the image covers the area */
+    border-radius: 10px; /* Rounded corners for the image */
+    margin-bottom: 20px; /* Space below the image */
+  }
+  
+  /* Styles for headings (h2) inside cards */
+  .card h2 {
+    font-size: 1.6em; /* Larger font size for headings */
+    margin-bottom: 12px; /* Space below the heading */
+    color: #2c3e50; /* Dark text color */
+    font-weight: 600; /* Semi-bold font weight */
+  }
+  
+  /* Styles for subheadings (h3) inside cards */
+  .card h3 {
+    font-size: 1.3em; /* Slightly smaller font size */
+    color: #34495e; /* Medium-dark text color */
+    margin-bottom: 15px; /* Space below the subheading */
+    font-weight: 500; /* Medium font weight */
+  }
+  
+  /* Styles for paragraphs (p) inside cards */
+  .card p {
+    font-size: 1em; /* Standard font size */
+    color: #666; /* Light text color */
+    line-height: 1.6; /* Improved readability */
+    margin-bottom: 15px; /* Space below paragraphs */
+  }
+  
+  /* Read More button styles */
+  .read-more-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .read-more-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 768px) {
+    .cards-container {
+      padding: 20px 10px; /* Reduce padding */
+    }
+  
+    .card {
+      width: 100%; /* Full width for smaller screens */
+      max-width: 400px; /* Limit maximum width */
+      margin: 10px 0; /* Add space between stacked cards */
+    }
+  
+    .card-image {
+      height: 150px; /* Adjust image height for smaller screens */
+    }
+  }
+  
+  /* Responsive styles for very small screens */
+  @media (max-width: 480px) {
+    .card h2 {
+      font-size: 1.4em; /* Smaller heading size */
+    }
+    .card-image {
+        height: 300px;
+    }
+  
+    .card h3 {
+      font-size: 1.1em; /* Smaller subheading size */
+    }
+  
+    .cards-container{
+        padding-top: 100px;
+    }
+    .card p {
+      font-size: 0.9em; /* Smaller paragraph text */
+    }
+  }

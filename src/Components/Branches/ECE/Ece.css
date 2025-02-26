@@ -1,0 +1,84 @@
+/* General container styling */
+.ece-container {
+    padding: 150px 20px 20px; /* Space for navbar and content */
+    background-color: #f4f4f4;
+  }
+  
+  /* Title styling */
+  .ece-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  /* Grid layout for cards */
+  .ece-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Individual card styling */
+  .ece-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .ece-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Image styling */
+  .ece-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Card content styling */
+  .ece-content {
+    padding: 20px;
+  }
+  
+  .ece-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+  
+  .ece-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .ece-title {
+      font-size: 2rem;
+    }
+  
+    .ece-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .ece-content h3 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ece-title {
+      font-size: 1.8rem;
+    }
+  
+    .ece-content p {
+      font-size: 0.9rem;
+    }
+  }
+  

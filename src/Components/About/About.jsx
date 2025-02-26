@@ -1,33 +1,46 @@
-import React from 'react'
-import './About.css'
-import about_img from '../../assets/bg.jpg'
-import play_icon from '../../assets/play-icon.png'
 
-const About = ({setVideo}) => {
+
+
+import React, { useEffect } from 'react';
+import './About.css';
+import clg from '../../assets/clg7.jpeg';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
+import { Link } from 'react-router-dom';
+
+const About = () => {
+    useEffect(() => {
+        Aos.init({
+          duration: 500,
+          easing: 'ease-in-out', 
+          once: false, 
+        });
+      }, []);
+
   return (
     <div className='about'>
-      <div className="about-left">
-        <img src={about_img} className='about-img' alt="" />
-        <img src={play_icon} onClick={()=>{setVideo(true)}} className='play-img' alt="" />
+      <div className="about-description" data-aos="fade-right">
+        <p className="about-us">About Us</p>
+        <div className="about-description1" data-aos="fade-up">
+          <h1 className="about-welcome">Welcome to</h1>
+          <h2 className="about-clg-name">Sanketika</h2>
+        </div>
+        <div className="about-description2" data-aos="fade-left">
+          <p className="description-para">
+            Sanketika Polytechnic College, with over 15 years of academic excellence, is renowned for its commitment to quality education in engineering and technology. Established in 2009, the college offers a vibrant campus life, fostering innovation and holistic development among its students.
+          </p>
+        </div>
+        <Link to='/about-more'>
+        <button className="about-more" data-aos="zoom-in">
+          Read More
+        </button>
+        </Link>
       </div>
-      <div className="about-right">
-      <h3>ABOUT COLLEGE</h3>
-      <h2>Nurturing Tomorrow's Leaders Today</h2>
-      <p>Sanketika Polytechnic College, with over 15 years of academic excellence, is renowned for its commitment to quality education in engineering and technology. Established in 2009, the college offers a vibrant campus life, fostering innovation and holistic development among its students.
-          </p>
-          <p>
-          With a focus on innovation, hands-on learning, and personalized mentorship,
-           our programs prepare aspiring educators to make a meaningful impact in classrooms,
-            schools, and communities
-          </p>
-          <p>
-          Whether you aspire to become a teacher, administrator, counselor, or educational leader,
-           our diverse range of programs offers the perfect pathway to achieve your goals and unlock your
-            full potential in shaping the future of education.
-          </p>
-          </div>
+      <div className="about-image" data-aos="fade-right">
+        <img src={clg} alt="College" className="about-img" />
+      </div>
     </div>
-  )
+  );
 }
 
-export default About
+export default About;

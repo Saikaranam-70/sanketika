@@ -3,8 +3,8 @@ import React from 'react'
 const NavBar = ({handleLogin, showLogOut, handleLogout}) => {
   const studentName = localStorage.getItem('studentName')
   return (
-    <div className='navbar'>
-          <div className="Principle">
+    <div className='navbar' style={{marginTop:'170px'}}>
+          <div className="Principle" >
             <h3>Student Dashboard</h3>
           </div>
           <div className="Sankethika">
