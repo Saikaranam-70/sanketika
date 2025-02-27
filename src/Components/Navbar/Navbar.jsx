@@ -4,25 +4,28 @@ import logo2 from '../../assets/logo2.webp';
 import './Navbar.css';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+const Dropdown = React.lazy(() => import('./Dropdown'));
 
-const Dropdown = ({ title, items, isOpen, toggle }) => {
-  return (
-    <div className="nav-link dropdown" onClick={(e) => e.stopPropagation()}>
-      <span onClick={toggle}>{title}↓</span>
-      {isOpen && (
-        <div className="dropdown-content">
-          {items.map((item, index) => (
-            <RouterLink key={index} to={item.link}>
-              {item.name}
-            </RouterLink>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+// const Dropdown = ({ title, items, isOpen, toggle }) => {
+//   return (
+//     <div className="nav-link dropdown" onClick={(e) => e.stopPropagation()}>
+//       <span onClick={toggle}>{title}↓</span>
+//       {isOpen && (
+//         <div className="dropdown-content">
+//           {items.map((item, index) => (
+//             <RouterLink key={index} to={item.link}>
+//               {item.name}
+//             </RouterLink>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
 
 const Navbar = () => {
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [departmentsOpen, setDepartmentsOpen] = useState(false);
@@ -111,7 +114,13 @@ const Navbar = () => {
     <div className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="logo_section">
         <RouterLink to="/">
-          <img src={logo} alt="College Logo" />
+        <img
+  src={logo}
+  alt="College Logo"
+  width={80} // Explicit width
+  height={80} // Explicit height
+  loading="lazy" // Lazy load non-critical images
+/>
         </RouterLink>
       </div>
 
@@ -185,7 +194,13 @@ const Navbar = () => {
 
       <div className="logo2_section">
         <RouterLink to="/">
-          <img src={logo2} alt="College Logo 2" />
+        <img
+  src={logo2}
+  alt="College Logo 2"
+  width={150} // Explicit width
+  height={150} // Explicit height
+  loading="lazy" // Lazy load non-critical images
+/>
         </RouterLink>
       </div>
 
