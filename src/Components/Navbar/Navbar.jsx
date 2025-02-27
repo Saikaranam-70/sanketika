@@ -4,24 +4,23 @@ import logo2 from '../../assets/logo2.webp';
 import './Navbar.css';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-const Dropdown = React.lazy(() => import('./Dropdown'));
 
-// const Dropdown = ({ title, items, isOpen, toggle }) => {
-//   return (
-//     <div className="nav-link dropdown" onClick={(e) => e.stopPropagation()}>
-//       <span onClick={toggle}>{title}↓</span>
-//       {isOpen && (
-//         <div className="dropdown-content">
-//           {items.map((item, index) => (
-//             <RouterLink key={index} to={item.link}>
-//               {item.name}
-//             </RouterLink>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
+const Dropdown = ({ title, items, isOpen, toggle }) => {
+  return (
+    <div className="nav-link dropdown" onClick={(e) => e.stopPropagation()}>
+      <span onClick={toggle}>{title}↓</span>
+      {isOpen && (
+        <div className="dropdown-content">
+          {items.map((item, index) => (
+            <RouterLink key={index} to={item.link}>
+              {item.name}
+            </RouterLink>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 
 const Navbar = () => {
