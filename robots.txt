@@ -1,2 +1,6 @@
+# Allow all crawlers to index everything
 User-agent: *
-Allow: /
+Disallow:
+
+# Optionally, specify sitemap
+Sitemap: https://sanketika.vercel.app/sitemap.xml
