@@ -32,7 +32,7 @@ const About = () => {
         </div>
         <Link to='/about-more'>
         <button className="about-more" data-aos="zoom-in">
-          Read More
+        Learn more about our college
         </button>
         </Link>
       </div>
