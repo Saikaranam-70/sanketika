@@ -2,6 +2,13 @@ import React from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add form submission logic here
+    alert('Form submitted successfully!');
+  };
+
   return (
     <div className="contact-container">
       <h1>Contact Us</h1>
@@ -12,18 +19,36 @@ const Contact = () => {
         <p>
           Reserve your seat now to secure your spot at Sanketika Polytechnic College. Fill out the form below, and our admissions team will get in touch with you shortly.
         </p>
-        <form className="seat-form">
+        <form className="seat-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              required
+            />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+            />
           </div>
           <div className="form-group">
             <label htmlFor="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              required
+            />
           </div>
           <div className="form-group">
             <label htmlFor="course">Select Course</label>
@@ -54,6 +79,7 @@ const Contact = () => {
             allowFullScreen=""
             loading="lazy"
             title="College Location"
+            aria-label="Google Maps location of Sanketika Polytechnic College"
           ></iframe>
         </div>
       </div>
