@@ -3,7 +3,7 @@ import './AboutUs.css'
 import about_img from '../../assets/bg.jpg'
 import play_icon from '../../assets/play-icon.png'
 
-const AboutUs = ({setVideo}) => {
+const AboutUs = ({setVideo =()=>{}}) => {
   return (
     <div className='about'>
       <div className="about-left">
