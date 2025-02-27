@@ -1,0 +1,136 @@
+/* Notification Component Styles */
+.student-notifications {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 150px; /* Top gap for fixed Navbar */
+  }
+  
+  .student-notifications-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .student-notifications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .student-notifications-table th,
+  .student-notifications-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .student-notifications-table th {
+    background-color: #000000;
+    font-weight: bold;
+  }
+  
+  .student-notifications-table iframe {
+    width: 100%;
+    height: 150px;
+    border: none;
+  }
+  
+  .view-pdf-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .view-pdf-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Queries for Responsive Design */
+  
+  /* For tablets and smaller screens */
+  @media (max-width: 768px) {
+    .student-notifications {
+      padding: 10px;
+      margin-top: 130px; /* Adjust top gap for smaller screens */
+    }
+  
+    .student-notifications-title {
+      font-size: 1.5rem;
+    }
+  
+    .student-notifications-table th,
+    .student-notifications-table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .student-notifications-table iframe {
+      height: 120px;
+    }
+  
+    .view-pdf-btn {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 480px) {
+    .student-notifications {
+      margin-top: 100px; /* Adjust top gap for mobile */
+    }
+  
+    .student-notifications-title {
+      font-size: 1.2rem;
+    }
+  
+    .student-notifications-table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    .student-notifications-table th,
+    .student-notifications-table td {
+      padding: 6px;
+      font-size: 12px;
+    }
+  
+    .student-notifications-table iframe {
+      height: 100px;
+    }
+  
+    .view-pdf-btn {
+      padding: 3px 6px;
+      font-size: 10px;
+    }
+  }
+  
+  /* For very small screens (e.g., iPhone SE) */
+  @media (max-width: 320px) {
+    .student-notifications {
+      margin-top: 100px; /* Adjust top gap for very small screens */
+    }
+  
+    .student-notifications-title {
+      font-size: 1rem;
+    }
+  
+    .student-notifications-table th,
+    .student-notifications-table td {
+      padding: 4px;
+      font-size: 10px;
+    }
+  
+    .student-notifications-table iframe {
+      height: 80px;
+    }
+  
+    .view-pdf-btn {
+      padding: 2px 4px;
+      font-size: 8px;
+    }
+  }

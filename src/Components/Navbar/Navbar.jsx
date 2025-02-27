@@ -5,36 +5,60 @@ import './Navbar.css';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 
+const Dropdown = ({ title, items, isOpen, toggle }) => {
+  return (
+    <div className="nav-link dropdown" onClick={(e) => e.stopPropagation()}>
+      <span onClick={toggle}>{title}↓</span>
+      {isOpen && (
+        <div className="dropdown-content">
+          {items.map((item, index) => (
+            <RouterLink key={index} to={item.link}>
+              {item.name}
+            </RouterLink>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [departmentsOpen, setDepartmentsOpen] = useState(false); // State for dropdown
-  const [aboutOpen, setAboutOpen] = useState(false)
-  const [acadamicsOpen, setAcadamicsOpen] = useState(false)
-  const [fecilitiesOpen, setFecilitiesOpen] = useState(false)
+  const [departmentsOpen, setDepartmentsOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [acadamicsOpen, setAcadamicsOpen] = useState(false);
+  const [fecilitiesOpen, setFecilitiesOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  useEffect(()=>{
-    setMenuOpen(false)
-  }, [location])
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
+
   const toggleDepartments = () => {
     setDepartmentsOpen(!departmentsOpen);
   };
 
-  const toggleAcadamics = () =>{
-    setAcadamicsOpen(!acadamicsOpen)
-  }
-  const toggleFecilities =()=>{
-    setFecilitiesOpen(!fecilitiesOpen)
-  }
+  const toggleAcadamics = () => {
+    setAcadamicsOpen(!acadamicsOpen);
+  };
 
-  const toggleAbout=()=>{
-    setAboutOpen(!aboutOpen)
-  }
+  const toggleFecilities = () => {
+    setFecilitiesOpen(!fecilitiesOpen);
+  };
+
+  const toggleAbout = () => {
+    setAboutOpen(!aboutOpen);
+  };
+
+  const toggleLogin = () => {
+    setLoginOpen(!loginOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,17 +73,12 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isHodLoginPage = location.pathname === '/hod';
-  const isPrincipalLoginPage = location.pathname === '/student';
-  const isStudentLoginPage = location.pathname === '/principal';
-
-  // List of departments
-  
   const fecilities = [
-    {name:"Transportation", link:"/transportation"},
-    {name:"Sports", link: "/sports"},
-    {name:"library", link:"/library"}
-  ]
+    { name: "Transportation", link: "/transportation" },
+    { name: "Sports", link: "/sports" },
+    { name: "Library", link: "/library" },
+  ];
+
 
   const departments = [
     { name: "Civil Engineering", link: "/civil" },
@@ -71,118 +90,102 @@ const Navbar = () => {
     { name: "Artificial Intelligence & ML", link: "/aiml" },
   ];
 
-  const about = [
-    {name: 'About Us', link: "/about-us"},
-    {name: 'Overview', link:"/overview"}
+  const acadamics = [
+    { name: "Courses", link: "/courses" },
+    {name: "Notifications", link:"/notifications"},
+    {name:"Attendence", link:"/attendence"},
+    {name:"Events", link:"/events"}
   ]
+  const about = [
+    { name: "About Us", link: "/about-us" },
+    { name: "Overview", link: "/overview" },
+  ];
+
+  const loginOptions = [
+    { name: "Principal Login", link: "/principal" },
+    { name: "Student Login", link: "/student" },
+    { name: "Hod Login", link: "/hod" },
+  ];
 
   return (
     <div className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="logo_section">
-        <RouterLink to='/'>
-        <img src={logo} alt="College Logo" />
+        <RouterLink to="/">
+          <img src={logo} alt="College Logo" />
         </RouterLink>
-        
       </div>
 
       <div className="nav-middle">
         <div className="clg_detail_section">
           <h3>Sanketika Polytechnic College</h3>
           <p className="nav_description">Where Knowledge Meets Excellence</p>
-          <p className="nav_description">(Approved By AICTC New Delhi & Affiliated To SBTET Govt. Of AP)</p>
+          <p className="nav_description">
+            (Approved By AICTC New Delhi & Affiliated To SBTET Govt. Of AP)
+          </p>
         </div>
 
         <div className="nav_menu" data-aos="fade-down">
           <div className="nav_link">
-            <RouterLink to="/" smooth={true} offset={0} duration={500}>
-              Home
-            </RouterLink>
+            <RouterLink to="/">Home</RouterLink>
           </div>
+
+          {/* Acadamics Dropdown */}
+          <Dropdown
+            title="Acadamics"
+            items={acadamics}
+            isOpen={acadamicsOpen}
+            toggle={toggleAcadamics}
+          />
 
           {/* Departments Dropdown */}
-          <div className="nav-link dropdown" onClick={toggleAcadamics}>
-            <span>Acadamics↓</span>
-            <div className="dropdown-content">
-              <RouterLink to='/courses'>Courses</RouterLink>
-              <div className="nav_link dropdown" onClick={toggleDepartments}>
-            <span>Departments↓</span>
-            {departmentsOpen && (
-              <div className="dropdown-content">
-                {departments.map((dept, index) => (
-                  <RouterLink key={index} to={dept.link}>
-                    {dept.name}
-                  </RouterLink>
-                ))}
-              </div>
-            )}
-          </div>
-            </div>
-          </div>
-         
+          <Dropdown
+            title="Departments"
+            items={departments}
+            isOpen={departmentsOpen}
+            toggle={toggleDepartments}
+          />
 
-          <div className="nav_link dropdown" onClick={toggleAbout}>
-            <span>About↓</span>
-            {aboutOpen && (
-              <div className="dropdown-content">
-                {about.map((ab, index)=>(
-                  <RouterLink key={index} to={ab.link}>
-                    {ab.name}
-                  </RouterLink>
-                ))}
-              </div>
-            )}
-          </div>
-
-          
+          {/* About Dropdown */}
+          <Dropdown
+            title="About"
+            items={about}
+            isOpen={aboutOpen}
+            toggle={toggleAbout}
+          />
 
           <div className="nav_link">
-          <RouterLink to='/admission'>
-              Admissions
-              </RouterLink>
+            <RouterLink to="/admission">Admissions</RouterLink>
           </div>
 
-          <div className="nav_link dropdown" onClick={toggleFecilities}>
-            <span>Fecilities↓</span>
-            {fecilitiesOpen && (
-              <div className="dropdown-content">
-                {fecilities.map((ab, index)=>(
-                  <RouterLink key={index} to={ab.link}>
-                    {ab.name}
-                  </RouterLink>
-                ))}
-              </div>
-            )}
+          {/* Facilities Dropdown */}
+          <Dropdown
+            title="Facilities"
+            items={fecilities}
+            isOpen={fecilitiesOpen}
+            toggle={toggleFecilities}
+          />
+
+          <div className="nav_link">
+            <RouterLink to="/gallery">Gallery</RouterLink>
           </div>
 
           <div className="nav_link">
-          <RouterLink to='/gallery'>
-              Gallery
-              </RouterLink>
-          </div>
-          <div className="nav_link">
-          <RouterLink to='/placements'>
-              Placements
-              </RouterLink>
+            <RouterLink to="/placements">Placements</RouterLink>
           </div>
 
-
-          <div className="nav_link">
-            <RouterLink to="/principal">Principal Login</RouterLink>
-          </div>
-
-          <div className="nav_link">
-            <RouterLink to="/student">Student Login</RouterLink>
-          </div>
-
-          <div className="nav_link">
-            <RouterLink to="/hod">Hod Login</RouterLink>
-          </div>
+          {/* Login Dropdown */}
+          <Dropdown
+            title="Login"
+            items={loginOptions}
+            isOpen={loginOpen}
+            toggle={toggleLogin}
+          />
         </div>
       </div>
 
       <div className="logo2_section">
-      <RouterLink to='/'>
-        <img src={logo2} alt="College Logo 2" />
+        <RouterLink to="/">
+          <img src={logo2} alt="College Logo 2" />
         </RouterLink>
       </div>
 
@@ -193,90 +196,60 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`nav_menu_mobile ${menuOpen ? 'show' : ''}`}>
         <div className="nav_link">
-          <RouterLink to="/" smooth={true} offset={0} duration={500}>
-            Home
-          </RouterLink>
+          <RouterLink to="/">Home</RouterLink>
         </div>
+
+        {/* Acadamics Dropdown for Mobile */}
+        <Dropdown
+          title="Acadamics"
+          items={acadamics}
+          isOpen={acadamicsOpen}
+          toggle={toggleAcadamics}
+        />
 
         {/* Departments Dropdown for Mobile */}
-        <div className="nav-link dropdown" onClick={toggleAcadamics}>
-            <span>Acadamics↓</span>
-            <div className="dropdown-content">
-              <RouterLink to='/courses'>Courses</RouterLink>
-              <div className="nav_link dropdown" onClick={toggleDepartments}>
-            <span>Departments↓</span>
-            {departmentsOpen && (
-              <div className="dropdown-content">
-                {departments.map((dept, index) => (
-                  <RouterLink key={index} to={dept.link}>
-                    {dept.name}
-                  </RouterLink>
-                ))}
-              </div>
-            )}
-          </div>
-            </div>
-          </div>
+        <Dropdown
+          title="Departments"
+          items={departments}
+          isOpen={departmentsOpen}
+          toggle={toggleDepartments}
+        />
 
-        <div className="nav_link dropdown" onClick={toggleAbout}>
-          <span>About↓</span>
-          {aboutOpen && (
-            <div className="dropdown-content">
-              {about.map((ab, index)=>(
-                <RouterLink key={index} to={ab.link}>
-                {ab.name}
-              </RouterLink>
-              ))}
-            </div>
-          )}
+        {/* About Dropdown for Mobile */}
+        <Dropdown
+          title="About"
+          items={about}
+          isOpen={aboutOpen}
+          toggle={toggleAbout}
+        />
+
+        <div className="nav_link">
+          <RouterLink to="/admission">Admissions</RouterLink>
         </div>
-        <div className="nav_link">
-          <RouterLink to='/admission'>
-              Admissions
-              </RouterLink>
-          </div>
 
-          <div className="nav_link dropdown" onClick={toggleFecilities}>
-            <span>Fecilities↓</span>
-            {fecilitiesOpen && (
-              <div className="dropdown-content">
-                {fecilities.map((ab, index)=>(
-                  <RouterLink key={index} to={ab.link}>
-                    {ab.name}
-                  </RouterLink>
-                ))}
-              </div>
-            )}
-          </div>
+        {/* Facilities Dropdown for Mobile */}
+        <Dropdown
+          title="Facilities"
+          items={fecilities}
+          isOpen={fecilitiesOpen}
+          toggle={toggleFecilities}
+        />
 
         <div className="nav_link">
-          <ScrollLink to="contact" smooth={true} offset={-260} duration={500}>
-            Contact us
-          </ScrollLink>
-        </div>
-        <div className="nav_link">
-          <RouterLink to='/gallery'>
-              Gallery
-              </RouterLink>
-          </div>
-
-        <div className="nav_link">
-          <RouterLink to='/placements'>
-              Placements
-              </RouterLink>
-          </div>
-
-        <div className="nav_link">
-          <RouterLink to="/principal">Principal Login</RouterLink>
+          <RouterLink to="/gallery">Gallery</RouterLink>
         </div>
 
         <div className="nav_link">
-          <RouterLink to="/student">Student Login</RouterLink>
+          <RouterLink to="/placements">Placements</RouterLink>
         </div>
 
-        <div className="nav_link">
-          <RouterLink to="/hod">Hod Login</RouterLink>
-        </div>
+        {/* Login Dropdown for Mobile */}
+        <Dropdown
+          title="Login"
+          items={loginOptions}
+          isOpen={loginOpen}
+          toggle={toggleLogin}
+        />
       </div>
     </div>
   );

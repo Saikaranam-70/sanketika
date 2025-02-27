@@ -1,0 +1,111 @@
+/* Events Component Styles */
+.student-events {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 150px; /* Top gap for fixed Navbar */
+  }
+  
+  .student-events-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .student-events-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .student-events-table th,
+  .student-events-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .student-events-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .event-banner {
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* Media Queries for Responsive Design */
+  
+  /* For tablets and smaller screens */
+  @media (max-width: 768px) {
+    .student-events {
+      padding: 10px;
+      margin-top: 100px; /* Adjust top gap for smaller screens */
+    }
+  
+    .student-events-title {
+      font-size: 1.5rem;
+    }
+  
+    .student-events-table th,
+    .student-events-table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .event-banner {
+      width: 80px;
+      height: 40px;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 480px) {
+    .student-events {
+      margin-top: 100px; /* Adjust top gap for mobile */
+    }
+  
+    .student-events-title {
+      font-size: 1.2rem;
+    }
+  
+    .student-events-table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    .student-events-table th,
+    .student-events-table td {
+      padding: 6px;
+      font-size: 12px;
+    }
+  
+    .event-banner {
+      width: 60px;
+      height: 30px;
+    }
+  }
+  
+  /* For very small screens (e.g., iPhone SE) */
+  @media (max-width: 320px) {
+    .student-events {
+      margin-top: 80px; /* Adjust top gap for very small screens */
+    }
+  
+    .student-events-title {
+      font-size: 1rem;
+    }
+  
+    .student-events-table th,
+    .student-events-table td {
+      padding: 4px;
+      font-size: 10px;
+    }
+  
+    .event-banner {
+      width: 50px;
+      height: 25px;
+    }
+  }

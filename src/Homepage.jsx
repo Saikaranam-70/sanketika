@@ -26,6 +26,10 @@ import Transportation from './Components/Transportation/Transportation'
 import Placements from './Components/Placements/Placements'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
+import Notification from './Components/Notification/Notification'
+import Evens from './Components/Events/Evens'
+import Attendence from './Components/Attendence/Attendence'
+
 
 const HomePage = () => {
   const [video, setVideo] = useState(false);
@@ -56,6 +60,9 @@ const HomePage = () => {
         <Route path='/transportation' element={<Transportation />} />
         <Route path='/placements' element={<Placements />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/notifications' element={<Notification />} />
+        <Route path='/events' element={<Evens />} />
+        <Route path='/attendence' element={<Attendence />} />
       </Routes>
       <Footer />
       <Video video={video} setVideo={setVideo}/>

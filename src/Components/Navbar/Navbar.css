@@ -313,6 +313,9 @@ nav ul li{
 /* Navbar.css */
 
 /* Base styles */
+/* Navbar.css */
+
+/* Base styles */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -418,6 +421,17 @@ nav ul li{
   display: block;
 }
 
+/* Nested dropdown styles */
+.dropdown .dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown .dropdown-content {
+  left: 100%;
+  top: 0;
+  margin-left: 5px;
+}
+
 /* Mobile menu icon */
 .menu-icon {
   display: none;
@@ -465,9 +479,10 @@ nav ul li{
   .clg_detail_section p {
     font-size: 0.8rem;
   }
+  
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav_menu {
     display: none;
   }

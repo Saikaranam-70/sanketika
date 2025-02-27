@@ -54,6 +54,7 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
+
 }
 
 .home::before {
@@ -93,6 +94,7 @@
 .clg-description{
     text-align: center;
     font-size: 20px;
+    color: rgb(255, 255, 255);
 }
 
 .courses-offer {
