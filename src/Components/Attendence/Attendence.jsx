@@ -70,8 +70,9 @@
 // export default Attendence
 import React, { useEffect, useState } from 'react';
 import './Attendence.css';
+import { API_URL } from '../../Principle/data/dataApi';
 
-const API_URL = 'http://localhost:5000';
+
 
 const Attendence = () => {
   const [attendence, setAttendence] = useState([]);
