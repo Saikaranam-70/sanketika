@@ -3,7 +3,7 @@
 
 import React, { useEffect } from 'react';
 import './About.css';
-import clg from '../../assets/clg7.jpeg';
+import clg from '../../assets/clg7.webp';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import { Link } from 'react-router-dom';

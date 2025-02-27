@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./Courses.css";
-import civil from '../../../src/assets/civil.jpg';
+import civil from '../../../src/assets/civil.webp';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 import { useEffect } from "react";
-import eee from '../../assets/eee.jpeg'
-import cme from '../../assets/cme.jpeg'
-import ece from '../../assets/ece.jpeg'
-import mech from '../../assets/mech.jpeg'
-import Ai from '../../assets/Ai.jpeg'
-import Ae from '../../assets/Ae.jpeg'
+import eee from '../../assets/eee.webp'
+import cme from '../../assets/cme.webp'
+import ece from '../../assets/ece.webp'
+import mech from '../../assets/mech.webp'
+import Ai from '../../assets/Ai.webp'
+import Ae from '../../assets/Ae.webp'
 const courses = [
   { name: "Electrical Engineering", image: eee, link: "/eee" },
   { name: "Computer Engineering", image: cme, link: "/cme" },

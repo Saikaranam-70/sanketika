@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import './Transportation.css';
-import bus1 from '../../assets/bus1.jpg'; // Add your image paths
-import bus2 from '../../assets/bus2.jpg';
-import bus3 from '../../assets/bus3.jpg';
-import bus4 from '../../assets/bus4.jpg';
-import bus5 from '../../assets/bus5.jpg';
-import bus6 from '../../assets/bus6.jpg';
-import bus7 from '../../assets/bus7.jpg';
-import bus8 from '../../assets/bus8.jpg';
-import bus9 from '../../assets/bus9.jpg';
-import bus10 from '../../assets/bus10.jpg';
+import bus1 from '../../assets/bus1.webp'; // Add your image paths
+import bus2 from '../../assets/bus2.webp';
+import bus3 from '../../assets/bus3.webp';
+import bus4 from '../../assets/bus4.webp';
+import bus5 from '../../assets/bus5.webp';
+import bus6 from '../../assets/bus6.webp';
+import bus7 from '../../assets/bus7.webp';
+import bus8 from '../../assets/bus8.webp';
+import bus9 from '../../assets/bus9.webp';
+import bus10 from '../../assets/bus10.webp';
 
 // Import PDF files for routes
 import malakapuramPdf from '../../assets/pdfs/MALAKAPURAM.pdf';

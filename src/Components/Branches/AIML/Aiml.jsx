@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Aiml.css'; // Import CSS for styling
-import ai1 from '../../../assets/ai1.jpeg'
-import ai2 from '../../../assets/ai2.jpeg'
-import ai3 from '../../../assets/ai3.jpeg'
-import ai4 from '../../../assets/ai4.jpeg'
-import ai5 from '../../../assets/ai5.jpeg'
-import ai6 from '../../../assets/ai6.jpeg'
-import ai7 from '../../../assets/ai7.jpeg'
-import ai8 from '../../../assets/ai8.jpeg'
+import ai1 from '../../../assets/ai1.webp'
+import ai2 from '../../../assets/ai2.webp'
+import ai3 from '../../../assets/ai3.webp'
+import ai4 from '../../../assets/ai4.webp'
+import ai5 from '../../../assets/ai5.webp'
+import ai6 from '../../../assets/ai6.webp'
+import ai7 from '../../../assets/ai7.webp'
+import ai8 from '../../../assets/ai8.webp'
 
 const Aiml = () => {
   const [activeIndex, setActiveIndex] = useState(null);

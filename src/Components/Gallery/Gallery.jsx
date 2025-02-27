@@ -1,26 +1,26 @@
 import React from "react";
 import "./Gallery.css";
-import gallery_1 from "../../assets/clg1.jpeg";
-import gallery_2 from "../../assets/clg2.jpeg";
-import gallery_3 from "../../assets/clg3.jpeg";
-import gallery_4 from "../../assets/clg4.jpeg";
-import gallery_5 from "../../assets/clg5.jpeg";
-import gallery_6 from "../../assets/clg6.jpeg";
-import gallery_7 from "../../assets/clg7.jpeg";
-import gallery_8 from "../../assets/clg8.jpeg";
-import gallery_9 from "../../assets/lab1.jpeg";
-import gallery_10 from "../../assets/logo2.png";
-import gallery_11 from "../../assets/mech-lab.jpeg";
-import gallery_12 from "../../assets/sankethika-hero.jpeg";
-import gallery_13 from "../../assets/pic1.jpg";
-import gallery_14 from "../../assets/pic2.jpg";
-import gallery_15 from "../../assets/pic3.jpg";
-import gallery_16 from "../../assets/pic4.png";
-import gallery_17 from "../../assets/pic5.png";
-import gallery_18 from "../../assets/pic6.png";
-import gallery_19 from "../../assets/pic1.jpg";
-import gallery_20 from "../../assets/pic9.png";
-import gallery_21 from "../../assets/pic10.png";
+import gallery_1 from "../../assets/clg1.webp";
+import gallery_2 from "../../assets/clg2.webp";
+import gallery_3 from "../../assets/clg3.webp";
+import gallery_4 from "../../assets/clg4.webp";
+import gallery_5 from "../../assets/clg5.webp";
+import gallery_6 from "../../assets/clg6.webp";
+import gallery_7 from "../../assets/clg7.webp";
+import gallery_8 from "../../assets/clg8.webp";
+import gallery_9 from "../../assets/lab1.webp";
+import gallery_10 from "../../assets/logo2.webp";
+import gallery_11 from "../../assets/mech-lab.webp";
+import gallery_12 from "../../assets/sankethika-hero.webp";
+import gallery_13 from "../../assets/pic1.webp";
+import gallery_14 from "../../assets/pic2.webp";
+import gallery_15 from "../../assets/pic3.webp";
+import gallery_16 from "../../assets/pic4.webp";
+import gallery_17 from "../../assets/pic5.webp";
+import gallery_18 from "../../assets/pic6.webp";
+import gallery_19 from "../../assets/pic1.webp";
+import gallery_20 from "../../assets/pic9.webp";
+import gallery_21 from "../../assets/pic10.webp";
 
 
 

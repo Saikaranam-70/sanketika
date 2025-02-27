@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './AboutUs.css';
-import secretaryImage from '../../assets/secretary.png'; // Adjust the path as needed
-import executiveDirectorImage from '../../assets/executive-director.png';
-import placementOfficerImage from '../../assets/placement-officer.png';
-import coordinatorImage from '../../assets/coordinator.png';
-import hrManagerImage from '../../assets/hr-manager.png';
-import principalImage from '../../assets/principlal.png';
-import executiveOfficer from '../../assets/executive-officer.png';
+import secretaryImage from '../../assets/secretary.webp'; // Adjust the path as needed
+import executiveDirectorImage from '../../assets/executive-director.webp';
+import placementOfficerImage from '../../assets/placement-officer.webp';
+import coordinatorImage from '../../assets/coordinator.webp';
+import hrManagerImage from '../../assets/hr-manager.webp';
+import principalImage from '../../assets/principlal.webp';
+import executiveOfficer from '../../assets/executive-officer.webp';
 
 const AboutUs = () => {
   const [expandedCard, setExpandedCard] = useState(null);

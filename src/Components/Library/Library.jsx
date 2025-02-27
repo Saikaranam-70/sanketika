@@ -1,9 +1,9 @@
 import React from 'react';
 import './Library.css';
-import library1 from '../../assets/Library1.png'
-import library2 from '../../assets/Library2.png'
-import library3 from '../../assets/Library3.png'
-import library4 from '../../assets/Library4.png'
+import library1 from '../../assets/Library1.webp'
+import library2 from '../../assets/Library2.webp'
+import library3 from '../../assets/Library3.webp'
+import library4 from '../../assets/Library4.webp'
 
 const Library = () => {
   return (

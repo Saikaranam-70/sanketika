@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../../assets/logo copy.png';
-import logo2 from '../../assets/logo2.png';
+import logo from '../../assets/logo copy.webp';
+import logo2 from '../../assets/logo2.webp';
 import './Navbar.css';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation } from 'react-router-dom';

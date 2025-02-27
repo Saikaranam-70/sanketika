@@ -1,8 +1,8 @@
 import React from 'react';
 import './Sports.css';
-import playgroundImage from '../../assets/playground.jpg'; // Adjust the path as needed
-import gymImage from '../../assets/gym.jpg';
-import sportsImage from '../../assets/sports.jpg';
+import playgroundImage from '../../assets/playground.webp'; // Adjust the path as needed
+import gymImage from '../../assets/gym.webp';
+import sportsImage from '../../assets/sports.webp';
 
 const Sports = () => {
   return (

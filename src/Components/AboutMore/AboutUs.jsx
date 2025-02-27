@@ -1,7 +1,7 @@
 import React from 'react'
 import './AboutUs.css'
-import about_img from '../../assets/bg.jpg'
-import play_icon from '../../assets/play-icon.png'
+import about_img from '../../assets/bg.webp'
+import play_icon from '../../assets/play-icon.webp'
 
 const AboutUs = ({setVideo =()=>{}}) => {
   return (

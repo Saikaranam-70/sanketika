@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './Placements.css';
-import pl1 from '../../assets/pl1.jpg'; // Add your image paths
-import pl2 from '../../assets/pl2.jpg';
-import pl3 from '../../assets/pl3.jpg';
-import pl4 from '../../assets/pl4.jpg';
-import pl5 from '../../assets/pl5.jpg';
-import pl6 from '../../assets/pl6.jpg';
-import pl7 from '../../assets/pl7.jpg';
-import pl8 from '../../assets/pl8.jpg';
-import pl9 from '../../assets/pl9.jpg';
-import pl10 from '../../assets/pl10.jpg';
-import companyBanner from '../../assets/company-banner.jpg'; // Banner image for Companies section
+import pl1 from '../../assets/pl1.webp'; // Add your image paths
+import pl2 from '../../assets/pl2.webp';
+import pl3 from '../../assets/pl3.webp';
+import pl4 from '../../assets/pl4.webp';
+import pl5 from '../../assets/pl5.webp';
+import pl6 from '../../assets/pl6.webp';
+import pl7 from '../../assets/pl7.webp';
+import pl8 from '../../assets/pl8.webp';
+import pl9 from '../../assets/pl9.webp';
+import pl10 from '../../assets/pl10.webp';
+import companyBanner from '../../assets/company-banner.webp'; // Banner image for Companies section
 
 // Import PDF files
 import report2024 from '../../assets/pdfs/pd1.pdf';
