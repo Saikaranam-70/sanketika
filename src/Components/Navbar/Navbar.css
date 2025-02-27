@@ -336,11 +336,13 @@ nav ul li{
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 /* Logo section */
 .logo_section img {
   height: 80px;
   width: auto;
   margin-left: 20px;
+
 }
 
 .logo2_section img {
