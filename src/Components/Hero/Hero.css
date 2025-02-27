@@ -138,5 +138,9 @@
     .clg-description{
         font-size: 17px;
         color: white;
+        
+    }
+    .clg-Head{
+        color: blue;
     }
 }
