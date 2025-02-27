@@ -3,7 +3,7 @@ import './Library.css';
 import library1 from '../../assets/Library1.png'
 import library2 from '../../assets/Library2.png'
 import library3 from '../../assets/Library3.png'
-import library4 from '../../assets/Library4.webp'
+import library4 from '../../assets/Library4.png'
 
 const Library = () => {
   return (
