@@ -70,7 +70,7 @@ const Contact = () => {
         <p>
           Visit us at our campus located in the heart of Visakhapatnam. We are easily accessible by public and private transport.
         </p>
-        {/* <div className="map-container">
+        <div className="map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.231230874035!2d83.218485315355!3d17.530902299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3411c7a2b5f8d5%3A0x5f5f5f5f5f5f5f5f!2sSanketika%20Polytechnic%20College!5e0!3m2!1sen!2sin!4v1633080000000!5m2!1sen!2sin"
             width="100%"
@@ -81,7 +81,7 @@ const Contact = () => {
             title="College Location"
             aria-label="Google Maps location of Sanketika Polytechnic College"
           ></iframe>
-        </div> */}
+        </div>
       </div>
 
       {/* Contact Details Section */}
