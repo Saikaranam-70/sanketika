@@ -9,7 +9,7 @@ const Feedback = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await fetch('http://localhost:5000/feedback/all');
+        const response = await fetch('https://collegewebsite-1.onrender.com/feedback/all');
         if (!response.ok) {
           throw new Error('Failed to fetch feedbacks');
         }
