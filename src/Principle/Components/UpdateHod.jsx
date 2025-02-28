@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { API_URL } from '../data/dataApi';
+import './Principal.css'
 
 const UpdateHod = () => {
     const [userName, setUserName ] = useState("");

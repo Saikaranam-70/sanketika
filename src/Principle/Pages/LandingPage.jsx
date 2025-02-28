@@ -273,9 +273,9 @@ const updateHandler = ()=>{
 
   return (
     <div>
-       <NavBar showLoginHandler = {showLoginHandler} showRegisterHandler={showRegisterHandler} showLogOut={showLogOut} logOutHandler={logOutHandler}/>
+       <NavBar showLoginHandler = {showLoginHandler} showRegisterHandler={showRegisterHandler} showLogOut={showLogOut} logOutHandler={logOutHandler} showAllHodHandler={showAllHodHandler} showNotificationHandler = {showNotificationHandler} showEventHandler= {showEventHandler} showAllEventHandler ={showAllEventHandler} showAllNotificationsHandler={showAllNotificationsHandler} showAddHodHandler = {showAddHodHandler}/>
       <div className="nav-side">
-      <Sidebar showAllHodHandler={showAllHodHandler} showNotificationHandler = {showNotificationHandler} showEventHandler= {showEventHandler} showAllEventHandler ={showAllEventHandler} showAllNotificationsHandler={showAllNotificationsHandler} showAddHodHandler = {showAddHodHandler}/>
+      {/* <Sidebar /> */}
         {showLogin && <Login resetPassword={resetPassword}/>}
         {showRegister && <Register showLoginHandler={showLoginHandler}/>}
         {showNotification && <AddNotification />}

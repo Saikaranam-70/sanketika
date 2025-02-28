@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { API_URL } from '../../data/dataApi';
 import ResetPassword from '../ResetPassword';
+import '../Principal.css'
+
 
 const Login = ({resetPassword}) => {
     const [email, setEmail] = useState("");
@@ -47,7 +49,7 @@ const Login = ({resetPassword}) => {
         <label>Email:</label><br />
         <input type="text" name='email' value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='enter your email'/> <br />
         <label>Password:</label><br />
-        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} name='password' placeholder='enter your email'/>
+        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} name='password' placeholder='enter your Password'/>
         <div className="submitBtn">
             <button type='submit'>Submit</button>
             {loading && <div className="spinner"></div>} {/* Show spinner when loading */}

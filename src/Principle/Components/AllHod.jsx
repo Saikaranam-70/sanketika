@@ -1,82 +1,91 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { API_URL } from '../data/dataApi';
-import UpdateHod from './UpdateHod';
+import './Principal.css';
 
-const AllHod = ({updateHandler}) => {
-    const [hod, setHod] = useState([]);
-    const allHodHandler = async()=>{
-        const principleId = localStorage.getItem('principleId')
+const AllHod = ({ updateHandler }) => {
+  const [hod, setHod] = useState([]);
 
-        try {
-            const responce = await fetch(`${API_URL}/hod/all-hod/${principleId}`)
-            const data = await responce.json();
-            setHod(data.hod);
-            console.log(data)
-        } catch (error) {
-            console.log(error)
+  const fetchAllHod = async () => {
+    const principleId = localStorage.getItem('principleId');
+    try {
+      const response = await fetch(`${API_URL}/hod/all-hod/${principleId}`);
+      const data = await response.json();
+      setHod(data.hod);
+    } catch (error) {
+      console.error('Failed to fetch HODs:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAllHod();
+  }, []);
+
+  const handleDeleteHod = async (hodId) => {
+    try {
+      const response = await fetch(`${API_URL}/hod/delete-hod/${hodId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setHod(hod.filter((hod) => hod._id !== hodId));
+        if (window.confirm('Are you sure you want to delete this HOD?')) {
+          alert('HOD deleted successfully.');
         }
+      }
+    } catch (error) {
+      console.error('Failed to delete HOD:', error);
+      alert('Failed to delete HOD.');
     }
-    useEffect(()=>{
-        allHodHandler()
-    },[])
+  };
 
-    const deleteHod = async(hodId)=>{
-        try {
-            const responce = await fetch(`${API_URL}/hod/delete-hod/${hodId}`,{
-                method:'DELETE'
-            })
-            if(responce.ok){
-                setHod(hod.filter(notification => notification._id !== hodId));
-                confirm("are you sure, you want to delete?");
-                alert("Notification Deleted Successfully")
-              }
-            } catch (error) {
-              console.log(error);
-              alert("Failed to Delete Events")
-            }
-    }
-    
   return (
-    <div className='sai'>
-       <table className="productTable">
-          <thead>
-               <tr>
-                   <th>Name</th>
-                   <th>Branch</th>
-                   <th>Profile Pic</th>
-                   <th>Update Hod</th>
-                   <th>Delete Hod</th>
-               </tr>
-           </thead>
-           <tbody>
-              {
-                hod.map((item)=>{
-                  return(
-                    <>
-                    <tr key={item._id}>
-                 <td>{item.name}</td>
-                 <td>{item.branch}</td>
-                 <td>
-                 {item.profile && (
-                    <img style={{width: '100px', height:'50px'}} src={`${API_URL}/hod/uploads/${item.profile}`} alt={item.name} />
-                  )}
-                 </td>
-                 <td>
-                    <button className='table-Btn' onClick={updateHandler}> Update Hod</button>
-                 </td>
-                 <td>
-                  <button className='table-Btn' onClick={()=>deleteHod(item._id)}>delete</button>
-                 </td>
-              </tr>
-                    </>
-                  )
-                })
-              }
-          </tbody>
-        </table>
-                      
+    <div className='all-hod-container'>
+      <h2 className='all-hod-title'>All HODs</h2>
+      <table className='all-hod-table'>
+        <thead className='all-hod-thead'>
+          <tr>
+            <th className='all-hod-th'>Name</th>
+            <th className='all-hod-th'>Branch</th>
+            <th className='all-hod-th'>Profile Picture</th>
+            <th className='all-hod-th'>Update HOD</th>
+            <th className='all-hod-th'>Delete HOD</th>
+          </tr>
+        </thead>
+        <tbody className='all-hod-tbody'>
+          {hod.map((item) => (
+            <tr key={item._id} className='all-hod-row'>
+              <td className='all-hod-td'>{item.name}</td>
+              <td className='all-hod-td'>{item.branch}</td>
+              <td className='all-hod-td'>
+                {item.profile && (
+                  <img
+                    className='all-hod-profile-pic'
+                    src={`${API_URL}/hod/uploads/${item.profile}`}
+                    alt={item.name}
+                  />
+                )}
+              </td>
+              <td className='all-hod-td'>
+                <button
+                  className='all-hod-update-btn'
+                  onClick={updateHandler}
+                >
+                  Update HOD
+                </button>
+              </td>
+              <td className='all-hod-td'>
+                <button
+                  className='all-hod-delete-btn'
+                  onClick={() => handleDeleteHod(item._id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
-}
+  );
+};
 
-export default AllHod
+export default AllHod;

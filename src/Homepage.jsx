@@ -34,6 +34,7 @@ import Attendence from './Components/Attendence/Attendence'
 const HomePage = () => {
   const [video, setVideo] = useState(false);
   return (
+    <>
     <div>
       <Navbar />
       <Routes>
@@ -64,9 +65,12 @@ const HomePage = () => {
         <Route path='/events' element={<Evens />} />
         <Route path='/attendence' element={<Attendence />} />
       </Routes>
-      <Footer />
+      
+      
       <Video video={video} setVideo={setVideo}/>
     </div>
+    
+    </>
   )
 }
 
