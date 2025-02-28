@@ -43,7 +43,7 @@ const Notification = () => {
                 <td>
                   {item.content && (
                     <iframe
-                      src={`${API_URL}/uploads/${item.content}`}
+                      src={`${API_URL}/notification/uploads/${item.content}`}
                       title="Notification PDF"
                       frameBorder="0"
                     ></iframe>
@@ -52,7 +52,7 @@ const Notification = () => {
                 <td>
                   <button
                     className="view-pdf-btn"
-                    onClick={() => window.open(`${API_URL}/uploads/${item.content}`)}
+                    onClick={() => window.open(`${API_URL}/notification/uploads/${item.content}`)}
                   >
                     View PDF
                   </button>
