@@ -72,7 +72,7 @@ const Contact = () => {
         </p>
         <div className="map-container">
           <iframe
-            src="https://maps.app.goo.gl/A7gTqLzngKeYsjT2A"
+            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Sanketika Polytechnic College &amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             width="100%"
             height="400"
             style={{ border: 0 }}
