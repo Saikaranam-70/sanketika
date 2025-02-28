@@ -3,9 +3,11 @@ import './Sports.css';
 import playgroundImage from '../../assets/playground.webp'; // Adjust the path as needed
 import gymImage from '../../assets/gym.webp';
 import sportsImage from '../../assets/sports.webp';
+import Footer from '../Footer/Footer';
 
 const Sports = () => {
   return (
+    <>
     <div className="physical-education-container">
       <div className="section">
         <h2>The Significance of Physical Education</h2>
@@ -51,6 +53,8 @@ const Sports = () => {
         </p>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

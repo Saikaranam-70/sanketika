@@ -2,9 +2,11 @@ import React from 'react'
 import './AboutUs.css'
 import about_img from '../../assets/bg.webp'
 import play_icon from '../../assets/play-icon.webp'
+import Footer from '../Footer/Footer'
 
 const AboutUs = ({setVideo =()=>{}}) => {
   return (
+    <>
     <div className='about'>
       <div className="about-left">
         <img src={about_img} className='about-img' alt="" />
@@ -26,7 +28,11 @@ const AboutUs = ({setVideo =()=>{}}) => {
             full potential in shaping the future of education.
           </p>
           </div>
-    </div>
+          
+              </div>
+              
+              <Footer />
+              </>
   )
 }
 

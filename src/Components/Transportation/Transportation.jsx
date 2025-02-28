@@ -22,6 +22,7 @@ import railwayNewColonyPdf from '../../assets/pdfs/RLY NEW COLONY.pdf';
 import chinnaMushurawadaPdf from '../../assets/pdfs/china-mushirawada.pdf';
 import andalammaClgPdf from '../../assets/pdfs/ANDALAMMA.pdf';
 import thatichetlaPalemPdf from '../../assets/pdfs/THATICHETLAPALEM.pdf';
+import Footer from '../Footer/Footer';
 
 const Transportation = () => {
   const [activeTab, setActiveTab] = useState('transportation');
@@ -59,6 +60,7 @@ const Transportation = () => {
   ];
 
   return (
+    <>
     <div className="transportation-container">
       <div className="tabs">
         <button
@@ -151,6 +153,8 @@ const Transportation = () => {
         )}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

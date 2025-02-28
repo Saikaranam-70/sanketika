@@ -1,5 +1,6 @@
 import React from 'react';
 import './Contact.css';
+import Footer from '../Footer/Footer';
 
 const Contact = () => {
   // Handle form submission
@@ -10,6 +11,7 @@ const Contact = () => {
   };
 
   return (
+    <>
     <div className="contact-container">
       <h1>Contact Us</h1>
 
@@ -116,6 +118,8 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

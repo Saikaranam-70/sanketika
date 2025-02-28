@@ -71,6 +71,7 @@
 import React, { useEffect, useState } from 'react';
 import './Attendence.css';
 import { API_URL } from '../../Principle/data/dataApi';
+import Footer from '../Footer/Footer';
 
 
 
@@ -95,6 +96,7 @@ const Attendence = () => {
   const years = ['1st Year', '2nd Year', '3rd Year'];
 
   return (
+    <>
     <div className="attendance-container">
       <h2 className="attendance-title">Student Attendance</h2>
       <div className="branch-buttons-container">
@@ -146,6 +148,8 @@ const Attendence = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

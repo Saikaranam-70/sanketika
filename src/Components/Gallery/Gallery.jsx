@@ -21,6 +21,7 @@ import gallery_18 from "../../assets/pic6.webp";
 import gallery_19 from "../../assets/pic1.webp";
 import gallery_20 from "../../assets/pic9.webp";
 import gallery_21 from "../../assets/pic10.webp";
+import Footer from "../Footer/Footer";
 
 
 
@@ -29,6 +30,7 @@ const images = [gallery_1, gallery_2, gallery_3, gallery_4, gallery_5, gallery_6
 
 const Gallery = () => {
   return (
+    <>
     <div className="gallery-container">
       <h2 className="gallery-title">College Gallery</h2>
       <div className="gallery-grid">
@@ -39,6 +41,8 @@ const Gallery = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

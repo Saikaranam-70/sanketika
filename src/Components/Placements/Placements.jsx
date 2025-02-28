@@ -16,6 +16,7 @@ import companyBanner from '../../assets/company-banner.webp'; // Banner image fo
 import report2024 from '../../assets/pdfs/pd1.pdf';
 import report2023 from '../../assets/pdfs/pd2.pdf';
 import report2022 from '../../assets/pdfs/pd1.pdf';
+import Footer from '../Footer/Footer';
 
 const Placements = () => {
   const [activeTab, setActiveTab] = useState('placements');
@@ -87,6 +88,7 @@ const Placements = () => {
   ];
 
   return (
+    <>
     <div className="placements-container">
       <div className="tabs">
         <button
@@ -194,6 +196,8 @@ const Placements = () => {
         )}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

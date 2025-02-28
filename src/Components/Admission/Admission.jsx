@@ -1,8 +1,10 @@
 import React from 'react'
 import './Admission.css'
+import Footer from '../Footer/Footer'
 
 const Admission = () => {
   return (
+    <>
     <div className="admission-container">
       <h2>Eligibility Criteria</h2>
       <ul>
@@ -225,6 +227,8 @@ const Admission = () => {
         </tbody>
       </table>
     </div>
+    <Footer />
+    </>
   )
 }
 

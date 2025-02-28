@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Feedback.css'; // Import the CSS file
+import Footer from '../Footer/Footer';
+import { API_URL } from '../../Principle/data/dataApi';
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -9,7 +11,7 @@ const Feedback = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await fetch('http://localhost:5000/feedback/all');
+        const response = await fetch(`${API_URL}/feedback/all`);
         if (!response.ok) {
           throw new Error('Failed to fetch feedbacks');
         }
@@ -29,6 +31,7 @@ const Feedback = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
+    <>
     <div className="feedbacks-container">
       <h1>Student Feedbacks</h1>
       <div className="feedbacks-list">
@@ -37,7 +40,7 @@ const Feedback = () => {
             <div className="feedback-header">
               {feedback.studentImg && feedback.studentImg[0] ? (
                 <img
-                  src={`http://localhost:5000/student/uploads/${feedback.studentImg[0]}`}
+                  src={`${API_URL}/student/uploads/${feedback.studentImg[0]}`}
                   alt={feedback.name}
                   className="student-image"
                 />
@@ -58,6 +61,8 @@ const Feedback = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

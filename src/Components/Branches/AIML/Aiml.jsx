@@ -105,6 +105,7 @@ import ai5 from '../../../assets/ai5.webp'
 import ai6 from '../../../assets/ai6.webp'
 import ai7 from '../../../assets/ai7.webp'
 import ai8 from '../../../assets/ai8.webp'
+import Footer from '../../Footer/Footer';
 
 const Aiml = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -125,6 +126,7 @@ const Aiml = () => {
   ];
 
   return (
+    <>
     <div className="aiml-container">
       <h1 className="aiml-title">AI/ML: Opportunities, Applications, and Careers</h1>
       <div className="accordion">
@@ -154,6 +156,8 @@ const Aiml = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

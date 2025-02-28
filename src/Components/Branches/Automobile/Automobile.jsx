@@ -1,5 +1,6 @@
 import React from 'react';
 import './Automobile.css'; // Import CSS for styling
+import Footer from '../../Footer/Footer';
 
 const Automobile = () => {
   const automobileData = [
@@ -42,6 +43,7 @@ const Automobile = () => {
   ];
 
   return (
+    <>
     <div className="automobile-container">
       <h1 className="automobile-title">Automobile Engineering: Innovations and Opportunities</h1>
       <div className="automobile-grid">
@@ -61,6 +63,8 @@ const Automobile = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

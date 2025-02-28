@@ -1,5 +1,6 @@
 import React from 'react';
 import './Mech.css'; // Import CSS for styling
+import Footer from '../../Footer/Footer';
 
 const Mech = () => {
   const mechData = [
@@ -42,6 +43,7 @@ const Mech = () => {
   ];
 
   return (
+    <>
     <div className="mech-container">
       <h1 className="mech-title">Mechanical Engineering: Innovating the Future</h1>
       <div className="mech-grid">
@@ -56,6 +58,8 @@ const Mech = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from '../../Principle/data/dataApi';
 import './Notification.css'
+import Footer from '../Footer/Footer';
 
 
 const Notification = () => {
@@ -21,6 +22,7 @@ const Notification = () => {
   }, []);
 
   return (
+    <>
     <div className="student-notifications">
       <h2 className="student-notifications-title">Sankethika Notifications</h2>
       {!notifications.length ? (
@@ -63,6 +65,8 @@ const Notification = () => {
         </table>
       )}
     </div>
+    <Footer />
+    </>
   );
 };
 

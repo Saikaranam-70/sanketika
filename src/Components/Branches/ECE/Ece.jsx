@@ -1,5 +1,6 @@
 import React from 'react';
 import './Ece.css'; // Import CSS for styling
+import Footer from '../../Footer/Footer';
 
 const Ece = () => {
   const eceData = [
@@ -42,6 +43,7 @@ const Ece = () => {
   ];
 
   return (
+    <>
     <div className="ece-container">
       <h1 className="ece-title">Electronics and Communication Engineering: Connecting the World</h1>
       <div className="ece-grid">
@@ -56,6 +58,8 @@ const Ece = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

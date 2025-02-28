@@ -1,5 +1,6 @@
 import React from 'react';
 import './Civil.css'; // Import CSS for styling
+import Footer from '../../Footer/Footer';
 
 const Civil = () => {
   const civilData = [
@@ -42,6 +43,7 @@ const Civil = () => {
   ];
 
   return (
+    <>
     <div className="civil-container">
       <h1 className="civil-title">Civil Engineering: Building the Future</h1>
       <div className="civil-grid">
@@ -61,6 +63,8 @@ const Civil = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

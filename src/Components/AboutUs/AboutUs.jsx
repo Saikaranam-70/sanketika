@@ -7,6 +7,7 @@ import coordinatorImage from '../../assets/coordinator.webp';
 import hrManagerImage from '../../assets/hr-manager.webp';
 import principalImage from '../../assets/principlal.webp';
 import executiveOfficer from '../../assets/executive-officer.webp';
+import Footer from '../Footer/Footer';
 
 const AboutUs = () => {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -91,6 +92,7 @@ const AboutUs = () => {
   ];
 
   return (
+    <>
     <div className="cards-container">
       {cardData.map((card, index) => (
         <div
@@ -111,6 +113,8 @@ const AboutUs = () => {
         </div>
       ))}
     </div>
+    <Footer />
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Cme.css'; // Import CSS for styling
+import Footer from '../../Footer/Footer';
 
 const Cme = () => {
   const cmeData = [
@@ -42,6 +43,7 @@ const Cme = () => {
   ];
 
   return (
+    <>
     <div className="cme-container">
       <h1 className="cme-title">Computer Engineering: Shaping the Digital World</h1>
       <div className="cme-grid">
@@ -56,6 +58,8 @@ const Cme = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

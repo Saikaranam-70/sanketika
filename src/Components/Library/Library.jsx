@@ -4,9 +4,11 @@ import library1 from '../../assets/Library1.webp'
 import library2 from '../../assets/Library2.webp'
 import library3 from '../../assets/Library3.webp'
 import library4 from '../../assets/Library4.webp'
+import Footer from '../Footer/Footer';
 
 const Library = () => {
   return (
+    <>
     <div className="library-container">
       <div className="library-section">
         <h2>VISION</h2>
@@ -68,6 +70,8 @@ const Library = () => {
         <p>Phone: +91 123 456 7890</p>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

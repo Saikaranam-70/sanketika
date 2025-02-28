@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL } from '../../Principle/data/dataApi';
 import './Events.css'
+import Footer from '../Footer/Footer';
 
 
 const Evens = () => {
@@ -21,6 +22,7 @@ const Evens = () => {
   }, []);
 
   return (
+    <>
     <div className="student-events">
       <h2 className="student-events-title">Upcoming Events</h2>
       {!events.length  ? (
@@ -54,6 +56,8 @@ const Evens = () => {
         </table>
       )}
     </div>
+    <Footer />
+    </>
   );
 };
 

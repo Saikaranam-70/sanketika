@@ -1,5 +1,6 @@
 import React from 'react';
 import './Eee.css'; // Import CSS for styling
+import Footer from '../../Footer/Footer';
 
 const Eee = () => {
   const eeeData = [
@@ -42,6 +43,7 @@ const Eee = () => {
   ];
 
   return (
+    <>
     <div className="eee-container">
       <h1 className="eee-title">Electrical and Electronics Engineering: Powering the Future</h1>
       <div className="eee-grid">
@@ -56,6 +58,8 @@ const Eee = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import ece from '../../assets/ece.webp';
 import mech from '../../assets/mech.webp';
 import Ai from '../../assets/Ai.webp';
 import Ae from '../../assets/Ae.webp';
+import Footer from "../Footer/Footer";
 
 const courses = [
   { name: "Electrical Engineering", image: eee, link: "/eee", width: 400, height: 300 },
@@ -21,6 +22,7 @@ const courses = [
 
 const Courses = () => {
   return (
+    <>
     <div className="courses-container">
       <h2 className="courses-title">Our Courses</h2>
       <div className="courses-grid">
@@ -39,6 +41,8 @@ const Courses = () => {
         ))}
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
