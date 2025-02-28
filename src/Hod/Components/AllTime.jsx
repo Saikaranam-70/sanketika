@@ -1,90 +1,98 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { API_URL } from '../../Principle/data/dataApi';
+import './Hod.css';
 
-const AllTime = () => {
-  const [time, setTime]  = useState([]);
+const AllTimeTables = () => {
+  const [timeTables, setTimeTables] = useState([]);
 
-  const allTimeTable = async()=>{
-    const hodId = localStorage.getItem('hodId')
-    if(!hodId){
-      alert("Please Login...!!!")
+  const fetchTimeTables = async () => {
+    const hodId = localStorage.getItem('hodId');
+    if (!hodId) {
+      alert('Please Login...!!!');
+      return;
     }
     try {
-      const responce = await fetch(`${API_URL}/timetable/all-timeTable/${hodId}`)
-      const data = await responce.json();
-      setTime(data.timeTable)
-      console.log(data)
+      const response = await fetch(`${API_URL}/timetable/all-timeTable/${hodId}`);
+      const data = await response.json();
+      setTimeTables(data.timeTable || []);
     } catch (error) {
-      console.log(error)
+      console.error('Failed to fetch time tables:', error);
     }
-  }
-  const deleteTimeTable = async(notificationId)=>{
+  };
+
+  const deleteTimeTableById = async (timeTableId) => {
+    if (!window.confirm('Are you sure you want to delete this time table?')) return;
     try {
-      const responce = await fetch(`${API_URL}/timetable/delete/timetable/${notificationId}`, {
-        method: 'DELETE'
-      })
-      if(responce.ok){
-        setTime(time.filter(timeTable => timeTable._id !== notificationId));
-        confirm("are you sure, you want to delete?");
-        alert("Notification Deleted Successfully")
+      const response = await fetch(`${API_URL}/timetable/delete/timetable/${timeTableId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setTimeTables(timeTables.filter((table) => table._id !== timeTableId));
+        alert('Time Table deleted successfully');
       }
     } catch (error) {
-      console.log(error);
-      alert("Failed to Delete Events")
+      console.error('Failed to delete time table:', error);
+      alert('Failed to delete time table');
     }
+  };
 
-  }
-  useEffect(()=>{
-    allTimeTable()
-  }, [])
+  useEffect(() => {
+    fetchTimeTables();
+  }, []);
+
   return (
-    <div className='sai'>
-      <h2 className='note'>Time Tables</h2>
-      {
-        !time ? (
-          <p>TimeTables not found</p>
-        ):(
-
-          
-          <table className="eventTable">
-        <thead>
-          <th>Branch</th>
-          <th>Section</th>
-          <th>Time Table</th>
-          <th>View TimeTable</th>
-          <th>Delete TimeTable</th>
-        </thead>
-        <tbody>
-          {
-            time.map((item)=>{
-              return(
-                <>
-                <tr key={item._id}>
-            <td>{item.branch}</td>
-            <td>{item.section}</td>
-            <td>
-              {item.timeTableImage && 
-                     <iframe src={`${API_URL}/timetable/uploads/${item.timeTableImage}`} frameborder="0"></iframe>
-
-              }</td>
-            <td>
-              <button className='table-Btn' onClick={()=>window.open(`${API_URL}/timetable/uploads/${item.timeTableImage}`)} >View PDF</button>
-            </td>
-            <td>
-              
-              <button className='table-Btn' onClick={()=>deleteTimeTable(item._id)}>Delete</button>
-            </td>
-          </tr>
-                </>
-              )
-            })
-          }
-        </tbody>
-      </table>
-        )
-      }
+    <div className='timeTable-container'>
+      <h2 className='timeTable-heading'>All Time Tables</h2>
+      {timeTables.length > 0 ? (
+        <table className='timeTable-table'>
+          <thead>
+            <tr>
+              <th className='timeTable-th'>Branch</th>
+              <th className='timeTable-th'>Section</th>
+              <th className='timeTable-th'>Time Table</th>
+              <th className='timeTable-th'>View</th>
+              <th className='timeTable-th'>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {timeTables.map((item) => (
+              <tr key={item._id} className='timeTable-row'>
+                <td className='timeTable-td'>{item.branch}</td>
+                <td className='timeTable-td'>{item.section}</td>
+                <td className='timeTable-td'>
+                  {item.timeTableImage && (
+                    <iframe
+                      src={`${API_URL}/timetable/uploads/${item.timeTableImage}`}
+                      title='Time Table'
+                      className='timeTable-iframe'
+                    ></iframe>
+                  )}
+                </td>
+                <td className='timeTable-td'>
+                  <button
+                    className='timeTable-view-btn'
+                    onClick={() => window.open(`${API_URL}/timetable/uploads/${item.timeTableImage}`)}
+                  >
+                    View PDF
+                  </button>
+                </td>
+                <td className='timeTable-td'>
+                  <button
+                    className='timeTable-delete-btn'
+                    onClick={() => deleteTimeTableById(item._id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className='timeTable-no-data'>No time tables available</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default AllTime
+export default AllTimeTables;

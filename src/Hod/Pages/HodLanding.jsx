@@ -271,9 +271,9 @@ const resetHodPassword = async()=>{
 }
   return (
     <div>
-      <Navbar showLoginHandler = {showLoginHandler} logOutHandler = {logOutHandler} logOut = {logOut}/>
+      <Navbar showLoginHandler = {showLoginHandler} logOutHandler = {logOutHandler} logOut = {logOut} showStudentHandler={showStudentHandler} showFeeDueHandler={showFeeDueHandler}  showAttendenceHandler = {showAttendenceHandler} showAllStudentHandler = {showAllStudentHandler} showAllFeeDueHandler={showAllFeeDueHandler} showAllTimetableHandler={showAllTimetableHandler} showAllAttendenceHandler={showAllAttendenceHandler} showTimetableHandler={showTimetableHandler}/>
       <div className="nav-side">
-        <Sidebar showStudentHandler={showStudentHandler} showFeeDueHandler={showFeeDueHandler}  showAttendenceHandler = {showAttendenceHandler} showAllStudentHandler = {showAllStudentHandler} showAllFeeDueHandler={showAllFeeDueHandler} showAllTimetableHandler={showAllTimetableHandler} showAllAttendenceHandler={showAllAttendenceHandler} showTimetableHandler={showTimetableHandler}/>
+        {/* <Sidebar /> */}
         {showAttendence && <AddAttendence /> }
         {showAllFeeDue && <AllFeeDue />}
         {showStudent && <AddStudent />}

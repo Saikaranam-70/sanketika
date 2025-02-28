@@ -1,0 +1,478 @@
+/* Container styling */
+.attendence-container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 2rem auto;
+    margin-top: 250px;
+  }
+  
+  /* Heading styling */
+  .attendence-heading {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Table styling */
+  .attendence-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .attendence-th, .attendence-td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .attendence-th {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .attendence-row:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .attendence-row:hover {
+    background-color: #e9e9e9;
+  }
+  
+  /* Button styling */
+  .attendence-view-btn, .attendence-delete-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .attendence-view-btn {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .attendence-view-btn:hover {
+    background-color: #1976d2;
+  }
+  
+  .attendence-delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .attendence-delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Empty data message */
+  .attendence-no-data {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
+  /* PDF iframe styling */
+  .attendence-td iframe {
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+
+  /* Container */
+.fee-due-container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 220px;
+  }
+  
+  /* Heading */
+  .fee-due-heading {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Table */
+  .fee-due-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .fee-due-th, .fee-due-td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .fee-due-th {
+    background-color: #0077b6;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .fee-due-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Buttons */
+  .fee-due-view-btn, .fee-due-delete-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fee-due-view-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .fee-due-view-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .fee-due-delete-btn {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  .fee-due-delete-btn:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Empty State */
+  .fee-due-no-data {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
+  /* PDF Frame */
+  iframe {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Media Queries */
+  
+  /* For tablets and smaller screens */
+  @media (max-width: 768px) {
+    .fee-due-container {
+      padding: 1.5rem;
+    }
+  
+    .fee-due-heading {
+      font-size: 1.8rem;
+    }
+  
+    .fee-due-th, .fee-due-td {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  
+    .fee-due-view-btn, .fee-due-delete-btn {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  
+    iframe {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+  /* For mobile screens */
+  @media (max-width: 480px) {
+    .fee-due-container {
+      padding: 1rem;
+      margin-top: 250px;
+    }
+  
+    .fee-due-heading {
+      font-size: 1.5rem;
+    }
+  
+    .fee-due-table {
+      font-size: 0.8rem;
+    }
+  
+    .fee-due-th, .fee-due-td {
+      padding: 0.6rem;
+    }
+  
+    .fee-due-view-btn, .fee-due-delete-btn {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+    }
+  
+    iframe {
+      width: 70px;
+      height: 70px;
+    }
+  
+    /* Make table scrollable on small screens */
+    .fee-due-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  
+
+
+  /* General Styling */
+.timeTable-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-top: 260px;
+  }
+  
+  .timeTable-heading {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .timeTable-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timeTable-th,
+  .timeTable-td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .timeTable-th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .timeTable-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .timeTable-iframe {
+    width: 100px;
+    height: 100px;
+    border: none;
+  }
+  
+  .timeTable-view-btn,
+  .timeTable-delete-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .timeTable-view-btn {
+    background-color: #2196f3;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .timeTable-delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .timeTable-th,
+    .timeTable-td {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  
+    .timeTable-heading {
+      font-size: 1.5rem;
+    }
+  
+    .timeTable-view-btn,
+    .timeTable-delete-btn {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .timeTable-table {
+      font-size: 0.8rem;
+    }
+  
+    .timeTable-th,
+    .timeTable-td {
+      padding: 8px;
+    }
+  
+    .timeTable-view-btn,
+    .timeTable-delete-btn {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+  
+    .timeTable-heading {
+      font-size: 1.2rem;
+    }
+  }
+  
+
+/* Container styling */
+.student-list-container {
+    padding: 2rem;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 2rem auto;
+    margin-top: 220px;
+  }
+  
+  /* Heading */
+  .student-list-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Table styling */
+  .student-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .student-list-th,
+  .student-list-td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: left;
+  }
+  
+  .student-list-th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .student-list-td {
+    color: #333;
+  }
+  
+  .student-list-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .student-list-row:hover {
+    background-color: #e9e9e9;
+  }
+  
+  /* Button */
+  .student-list-delete-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .student-list-delete-btn:hover {
+    background-color: #c9302c;
+  }
+  
+  /* No data message */
+  .student-list-no-data {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 1rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .student-list-container {
+      padding: 1.5rem;
+      margin-top: 260px;
+    }
+  
+    .student-list-heading {
+      font-size: 1.75rem;
+    }
+  
+    .student-list-th,
+    .student-list-td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  
+    .student-list-delete-btn {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .student-list-container {
+      padding: 1rem;
+    }
+  
+    .student-list-heading {
+      font-size: 1.5rem;
+    }
+  
+    .student-list-th,
+    .student-list-td {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+  
+    .student-list-delete-btn {
+      font-size: 0.8rem;
+      padding: 0.4rem;
+    }
+  }
+  

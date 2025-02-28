@@ -79,6 +79,7 @@ const Navbar = () => {
     { name: "Transportation", link: "/transportation" },
     { name: "Sports", link: "/sports" },
     { name: "Library", link: "/library" },
+    
   ];
 
 
@@ -96,7 +97,9 @@ const Navbar = () => {
     { name: "Courses", link: "/courses" },
     {name: "Notifications", link:"/notifications"},
     {name:"Attendence", link:"/attendence"},
-    {name:"Events", link:"/events"}
+    {name:"Events", link:"/events"},
+    {name:"Feedback", link:"/feedback"
+    }
   ]
   const about = [
     { name: "About Us", link: "/about-us" },

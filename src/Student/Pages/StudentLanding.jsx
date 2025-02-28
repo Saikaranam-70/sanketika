@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../Components/NavBar'
-import Sidebar from '../Components/Sidebar'
+// import Sidebar from '../Components/Sidebar'
 import Login from '../Components/forms/Login'
 import AddFeedBack from '../Components/forms/AddFeedBack'
 import AllFeedBack from '../Components/AllFeedBack'
@@ -23,6 +23,7 @@ const StudentLanding = () => {
     localStorage.removeItem('studentToken')
     localStorage.removeItem('studentId');
     localStorage.removeItem('studentName');
+    console.log("called")
     setShowLogOut(false)
   }
   const handleLogin = ()=>{
@@ -56,9 +57,9 @@ const StudentLanding = () => {
   }
   return (
     <div>
-      <NavBar handleLogin={handleLogin} showLogOut={showLogOut} handleLogout={handleLogout}/>
+      <NavBar handleLogin={handleLogin} showLogOut={showLogOut} handleLogout={handleLogout} handleFeedBack={handleFeedBack} handleAllFeedBacks={handleAllFeedBacks}/>
       <div className="nav-side">
-        <Sidebar handleFeedBack={handleFeedBack} handleAllFeedBacks={handleAllFeedBacks}/>
+        {/* <Sidebar /> */}
         {showLogin && <Login />}
         {feedback && <AddFeedBack />}
         {allFeedBack && <AllFeedBack />}

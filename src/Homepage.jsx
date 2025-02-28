@@ -30,6 +30,8 @@ import Notification from './Components/Notification/Notification'
 import Evens from './Components/Events/Evens'
 import Attendence from './Components/Attendence/Attendence'
 
+import Feedback from './Components/Feedback/Feedback'
+
 
 const HomePage = () => {
   const [video, setVideo] = useState(false);
@@ -64,6 +66,7 @@ const HomePage = () => {
         <Route path='/notifications' element={<Notification />} />
         <Route path='/events' element={<Evens />} />
         <Route path='/attendence' element={<Attendence />} />
+        <Route path='/feedback' element={<Feedback />} />
       </Routes>
       
       

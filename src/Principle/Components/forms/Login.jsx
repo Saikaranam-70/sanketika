@@ -1,65 +1,88 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { API_URL } from '../../data/dataApi';
-import ResetPassword from '../ResetPassword';
-import '../Principal.css'
+import '../Principal.css';
 
+const Login = ({ resetPassword }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ type: "", text: "" });
 
-const Login = ({resetPassword}) => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false)
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage({ type: "", text: "" });
 
-    const logingHandler = async(e)=>{
-        e.preventDefault();
-        setLoading(true)
-        try {
-            const responce = await fetch(`${API_URL}/principle/login`, {
-                method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json'
-                },
-                body : JSON.stringify({email, password})
-            })
-            const data = await responce.json();
-
-            if(responce.ok){
-                alert("Login Success.....!!!")
-                console.log(data)
-                setEmail("");
-                setPassword("");
-                localStorage.setItem('loginToken', data.token)
-                localStorage.setItem('principleId', data.principleId)
-            }
-            const principleId = data.principleId;
-            const principleName = data.principleName
-            localStorage.setItem('name', data.principleName)
-            console.log(principleId)
-            console.log(principleName)
-            window.location.reload();
-        } catch (error) {
-            console.log(error)
-        }finally{
-          setLoading(false)
-        }
+    if (!email || !password) {
+      setMessage({ type: "error", text: "Please enter both email and password." });
+      setLoading(false);
+      return;
     }
+
+    try {
+      const response = await fetch(`${API_URL}/principle/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage({ type: "success", text: "Login successful! Redirecting..." });
+        localStorage.setItem('loginToken', data.token);
+        localStorage.setItem('principleId', data.principleId);
+        localStorage.setItem('name', data.principleName);
+        setTimeout(() => window.location.reload(), 1000); // Delay for better UX
+      } else {
+        setMessage({ type: "error", text: data.error || "Invalid email or password." });
+      }
+    } catch (error) {
+      console.error("Login Error:", error);
+      setMessage({ type: "error", text: "Failed to connect. Please try again later." });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-      <div className='loginSection'>
-      <form className='register-form' onSubmit={logingHandler}>
-      <h3>Principal Login</h3><br />
-        <label>Email:</label><br />
-        <input type="text" name='email' value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='enter your email'/> <br />
-        <label>Password:</label><br />
-        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} name='password' placeholder='enter your Password'/>
+    <div className='loginSection'>
+      <form className='register-form' onSubmit={loginHandler}>
+        <h3>Principal Login</h3>
+
+        {message.text && (
+          <p className={message.type === "error" ? "errorMessage" : "successMessage"}>
+            {message.text}
+          </p>
+        )}
+
+        <label>Email:</label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder='Enter your email'
+        />
+
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder='Enter your password'
+        />
+
         <div className="submitBtn">
-            <button type='submit'>Submit</button>
-            {loading && <div className="spinner"></div>} {/* Show spinner when loading */}
-        </div><br />
-        <div className="resetPassword">
-          <h4 style={{color:'red', letterSpacing: '2px'}} onClick={resetPassword}>Reset Password</h4>
+          <button type='submit' disabled={loading}>
+            {loading ? 'Logging in...' : 'Submit'}
+          </button>
+        </div>
+
+        <div className="resetPassword" onClick={resetPassword}>
+          <h4>Reset Password</h4>
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

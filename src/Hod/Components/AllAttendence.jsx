@@ -1,88 +1,97 @@
-import React, { useEffect, useState } from 'react'
-import { API_URL } from '../../Principle/data/dataApi'
+import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../Principle/data/dataApi';
+import './Hod.css';
 
 const AllAttendence = () => {
-  const [attendence, setAttendence] = useState([])
+  const [attendence, setAttendence] = useState([]);
 
-  const handleAttendence = async()=>{
-    const hodId = localStorage.getItem('hodId')
+  const fetchAttendence = async () => {
+    const hodId = localStorage.getItem('hodId');
     try {
-      const responce = await fetch(`${API_URL}/attendence/get-attendence/${hodId}`)
-      const data = await responce.json();
-      setAttendence(data.attendence)
-      console.log(data)
+      const response = await fetch(`${API_URL}/attendence/get-attendence/${hodId}`);
+      const data = await response.json();
+      setAttendence(data.attendence);
     } catch (error) {
-      console.log(error)
+      console.error('Failed to fetch attendence:', error);
     }
-  }
-  useEffect(()=>{
-    handleAttendence();
-  },[])
+  };
 
-  const deleteAttendence = async(attendenceId)=>{
+  useEffect(() => {
+    fetchAttendence();
+  }, []);
+
+  const deleteAttendenceById = async (attendenceId) => {
+    if (!window.confirm('Are you sure you want to delete this attendence?')) return;
+    
     try {
-      const responce = await fetch(`${API_URL}/attendence/delete-attendence/${attendenceId}`,{
-        method:'DELETE'
-      })
-      if(responce.ok){
-        setAttendence(attendence.filter(attendence => attendence._id !== attendenceId));
-        confirm("are you sure, you want to delete?");
-        alert("Attendence deleted successfully")
+      const response = await fetch(`${API_URL}/attendence/delete-attendence/${attendenceId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setAttendence(attendence.filter((item) => item._id !== attendenceId));
+        alert('Attendence deleted successfully');
       }
-
     } catch (error) {
-      console.log(error);
-      alert("Failed to Delete Attendence")
+      console.error('Failed to delete attendence:', error);
+      alert('Failed to delete attendence');
     }
-  }
-  return (
-    <div className='sai'>
-      <h2 className='note'>Attendence</h2>
-      {
-        !attendence ? (
-          <p>Attendence not found</p>
-        ):(
+  };
 
-          
-          <table className="eventTable">
+  return (
+    <div className='attendence-container'>
+      <h2 className='attendence-heading'>All Attendence</h2>
+      <table className='attendence-table'>
         <thead>
-          <th>Branch</th>
-          <th>Section</th>
-          <th>Attendence pdf</th>
-          <th>View Attendence</th>
-          <th>Delete Attendence</th>
+          <tr>
+            <th className='attendence-th'>Branch</th>
+            <th className='attendence-th'>Section</th>
+            <th className='attendence-th'>Attendence PDF</th>
+            <th className='attendence-th'>View</th>
+            <th className='attendence-th'>Delete</th>
+          </tr>
         </thead>
         <tbody>
-          {
-            attendence.map((item)=>{
-              return(
-                <>
-                <tr key={item._id}>
-            <td>{item.branch}</td>
-            <td>{item.section}</td>
-            <td>
-              {item.attendencePdf && 
-                     <iframe src={`${API_URL}/attendence/uploads/${item.attendencePdf}`} frameborder="0"></iframe>
-
-              }</td>
-            <td>
-              <button className='table-Btn' onClick={()=>window.open(`${API_URL}/attendence/uploads/${item.attendencePdf}`)} >View PDF</button>
-            </td>
-            <td>
-              
-              <button className='table-Btn' onClick={()=>deleteAttendence(item._id)} >Delete</button>
-            </td>
-          </tr>
-                </>
-              )
-            })
-          }
+          {attendence.length > 0 ? (
+            attendence.map((item) => (
+              <tr key={item._id} className='attendence-row'>
+                <td className='attendence-td'>{item.branch}</td>
+                <td className='attendence-td'>{item.section}</td>
+                <td className='attendence-td'>
+                  {item.attendencePdf && (
+                    <iframe
+                      src={`${API_URL}/attendence/uploads/${item.attendencePdf}`}
+                      title='Attendence PDF'
+                      frameBorder='0'
+                    ></iframe>
+                  )}
+                </td>
+                <td className='attendence-td'>
+                  <button
+                    className='attendence-view-btn'
+                    onClick={() => window.open(`${API_URL}/attendence/uploads/${item.attendencePdf}`)}
+                  >
+                    View PDF
+                  </button>
+                </td>
+                <td className='attendence-td'>
+                  <button
+                    className='attendence-delete-btn'
+                    onClick={() => deleteAttendenceById(item._id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan='5' className='attendence-no-data'>No attendence records available</td>
+            </tr>
+          )}
         </tbody>
       </table>
-        )
-      }
     </div>
-  )
-}
+  );
+};
 
-export default AllAttendence
+export default AllAttendence;

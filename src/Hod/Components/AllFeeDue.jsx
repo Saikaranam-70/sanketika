@@ -1,88 +1,97 @@
-import React, { useEffect, useState } from 'react'
-import { API_URL } from '../../Principle/data/dataApi'
+import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../Principle/data/dataApi';
+import './Hod.css';
 
 const AllFeeDue = () => {
-  const [attendence, setAttendence] = useState([])
+  const [feeDue, setFeeDue] = useState([]);
 
-  const handleAttendence = async()=>{
-    const hodId = localStorage.getItem('hodId')
+  const fetchFeeDue = async () => {
+    const hodId = localStorage.getItem('hodId');
     try {
-      const responce = await fetch(`${API_URL}/feeDue/all-feeDue/${hodId}`)
-      const data = await responce.json();
-      setAttendence(data.feeDue)
-      console.log(data)
+      const response = await fetch(`${API_URL}/feeDue/all-feeDue/${hodId}`);
+      const data = await response.json();
+      setFeeDue(data.feeDue);
     } catch (error) {
-      console.log(error)
+      console.error('Failed to fetch fee due:', error);
     }
-  }
-  useEffect(()=>{
-    handleAttendence();
-  },[])
+  };
 
-  const deleteAttendence = async(attendenceId)=>{
+  useEffect(() => {
+    fetchFeeDue();
+  }, []);
+
+  const deleteFeeDueById = async (feeDueId) => {
+    if (!window.confirm('Are you sure you want to delete this record?')) return;
+
     try {
-      const responce = await fetch(`${API_URL}/feeDue/delete-feeDue/${attendenceId}`,{
-        method:'DELETE'
-      })
-      if(responce.ok){
-        setAttendence(attendence.filter(attendence => attendence._id !== attendenceId));
-        confirm("are you sure, you want to delete?");
-        alert("Notification Deleted Successfully")
+      const response = await fetch(`${API_URL}/feeDue/delete-feeDue/${feeDueId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setFeeDue(feeDue.filter((item) => item._id !== feeDueId));
+        alert('Record deleted successfully');
       }
-
     } catch (error) {
-      console.log(error);
-      alert("Failed to Delete Attendence")
+      console.error('Failed to delete record:', error);
+      alert('Failed to delete record');
     }
-  }
-  return (
-    <div className='sai'>
-      <h2 className='note'>FeeDue</h2>
-      {
-        !attendence ? (
-          <p>FeeDue not found</p>
-        ):(
+  };
 
-          
-          <table className="eventTable">
+  return (
+    <div className='fee-due-container'>
+      <h2 className='fee-due-heading'>All Fee Dues</h2>
+      <table className='fee-due-table'>
         <thead>
-          <th>Branch</th>
-          <th>Section</th>
-          <th>Attendence pdf</th>
-          <th>View Attendence</th>
-          <th>Delete Attendence</th>
+          <tr>
+            <th className='fee-due-th'>Branch</th>
+            <th className='fee-due-th'>Section</th>
+            <th className='fee-due-th'>Fee Due PDF</th>
+            <th className='fee-due-th'>View</th>
+            <th className='fee-due-th'>Delete</th>
+          </tr>
         </thead>
         <tbody>
-          {
-            attendence.map((item)=>{
-              return(
-                <>
-                <tr key={item._id}>
-            <td>{item.branch}</td>
-            <td>{item.section}</td>
-            <td>
-              {item.feeDuePdf && 
-                     <iframe src={`${API_URL}/feeDue/uploads/${item.feeDuePdf}`} frameborder="0"></iframe>
-
-              }</td>
-            <td>
-              <button className='table-Btn' onClick={()=>window.open(`${API_URL}/feeDue/uploads/${item.feeDuePdf}`)} >View PDF</button>
-            </td>
-            <td>
-              
-              <button className='table-Btn' onClick={()=>deleteAttendence(item._id)} >Delete</button>
-            </td>
-          </tr>
-                </>
-              )
-            })
-          }
+          {feeDue.length > 0 ? (
+            feeDue.map((item) => (
+              <tr key={item._id} className='fee-due-row'>
+                <td className='fee-due-td'>{item.branch}</td>
+                <td className='fee-due-td'>{item.section}</td>
+                <td className='fee-due-td'>
+                  {item.feeDuePdf && (
+                    <iframe
+                      src={`${API_URL}/feeDue/uploads/${item.feeDuePdf}`}
+                      title='Fee Due PDF'
+                      frameBorder='0'
+                    ></iframe>
+                  )}
+                </td>
+                <td className='fee-due-td'>
+                  <button
+                    className='fee-due-view-btn'
+                    onClick={() => window.open(`${API_URL}/feeDue/uploads/${item.feeDuePdf}`)}
+                  >
+                    View PDF
+                  </button>
+                </td>
+                <td className='fee-due-td'>
+                  <button
+                    className='fee-due-delete-btn'
+                    onClick={() => deleteFeeDueById(item._id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan='5' className='fee-due-no-data'>No fee due records available</td>
+            </tr>
+          )}
         </tbody>
       </table>
-        )
-      }
     </div>
-  )
-}
+  );
+};
 
-export default AllFeeDue
+export default AllFeeDue;

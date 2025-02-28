@@ -1,98 +1,80 @@
-
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { API_URL } from '../../Principle/data/dataApi';
+import './Hod.css';
 
 const AllStudents = () => {
-  const [time, setTime]  = useState([]);
+  const [students, setStudents] = useState([]);
 
-  const allTimeTable = async()=>{
-    const hodId = localStorage.getItem('hodId')
-    if(!hodId){
-      alert("Please Login...!!!")
+  const fetchAllStudents = async () => {
+    const hodId = localStorage.getItem('hodId');
+    if (!hodId) {
+      alert('Please Login...!!!');
+      return;
     }
     try {
-      const responce = await fetch(`${API_URL}/student/all-students/${hodId}`)
-      const data = await responce.json();
-      setTime(data.students)
-      console.log(data)
+      const response = await fetch(`${API_URL}/student/all-students/${hodId}`);
+      const data = await response.json();
+      setStudents(data.students);
     } catch (error) {
-      console.log(error)
+      console.error('Failed to fetch students:', error);
     }
-  }
-  const deleteTimeTable = async(notificationId)=>{
+  };
+
+  const deleteStudent = async (studentId) => {
+    if (!window.confirm('Are you sure you want to delete this student?')) return;
     try {
-      const responce = await fetch(`${API_URL}/student/delete-student/${notificationId}`, {
-        method: 'DELETE'
-      })
-      if(responce.ok){
-        setTime(time.filter(timeTable => timeTable._id !== notificationId));
-        confirm("are you sure, you want to delete?");
-        alert("Notification Deleted Successfully")
+      const response = await fetch(`${API_URL}/student/delete-student/${studentId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setStudents(students.filter((student) => student._id !== studentId));
+        alert('Student deleted successfully');
       }
     } catch (error) {
-      console.log(error);
-      alert("Failed to Delete Events")
+      console.error('Failed to delete student:', error);
+      alert('Failed to delete student');
     }
+  };
 
-  }
-  useEffect(()=>{
-    allTimeTable()
-  }, [])
+  useEffect(() => {
+    fetchAllStudents();
+  }, []);
+
   return (
-    <div className='sai'>
-      <h2 className='note'>Students</h2>
-      {
-        !time ? (
-          <p>Students not found</p>
-        ):(
-
-          
-          <table className="eventTable">
-        <thead>
-          <th>Branch</th>
-          <th>name</th>
-          <th>Pin Number</th>
-          <th>Section</th>
-          
-          <th>Delete TimeTable</th>
-        </thead>
-        <tbody>
-          {
-            time.map((item)=>{
-              return(
-                <>
-                <tr key={item._id}>
-            <td>{item.branch}</td>
-            <td>{item.name}</td>
-            <td>
-              {item.pinNo}</td>
-              <td>{item.section}</td>
-            <td>
-              
-              <button className='table-Btn' onClick={()=>deleteTimeTable(item._id)}>Delete</button>
-            </td>
-          </tr>
-                </>
-              )
-            })
-          }
-        </tbody>
-      </table>
-        )
-      }
+    <div className='student-list-container'>
+      <h2 className='student-list-heading'>All Students</h2>
+      {students.length > 0 ? (
+        <table className='student-list-table'>
+          <thead>
+            <tr>
+              <th className='student-list-th'>Branch</th>
+              <th className='student-list-th'>Name</th>
+              <th className='student-list-th'>Pin Number</th>
+              <th className='student-list-th'>Section</th>
+              <th className='student-list-th'>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((student) => (
+              <tr key={student._id} className='student-list-row'>
+                <td className='student-list-td'>{student.branch}</td>
+                <td className='student-list-td'>{student.name}</td>
+                <td className='student-list-td'>{student.pinNo}</td>
+                <td className='student-list-td'>{student.section}</td>
+                <td className='student-list-td'>
+                  <button className='student-list-delete-btn' onClick={() => deleteStudent(student._id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className='student-list-no-data'>No students found</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default AllStudents
-
-
-
-
-
-
-
-
-
-
-
+export default AllStudents;

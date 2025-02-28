@@ -38,7 +38,7 @@ const AddFeedBack = () => {
     }
   }
   return (
-    <div className='registerSection Notification-Section'>
+    <div className='registerSection Notification-Section' style={{paddingTop:'20px'}}>
       <form className="register-form" onSubmit={feedBack}>
         <h3>Add Feed Back</h3>
         
