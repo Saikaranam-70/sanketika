@@ -58,6 +58,9 @@ const Contact = () => {
               <option value="ece">Electronics and Communication Engineering</option>
               <option value="mech">Mechanical Engineering</option>
               <option value="civil">Civil Engineering</option>
+              <option value="ai">Artificial Intelligince</option>
+              <option value="aiml">AI &ML</option>
+              <option value="eee">Electrical</option>
             </select>
           </div>
           <button type="submit">Book Now</button>
@@ -71,7 +74,7 @@ const Contact = () => {
           Visit us at our campus located in the heart of Visakhapatnam. We are easily accessible by public and private transport.
         </p>
         <div className="map-container">
-          <iframe
+          <iframe className='location-frame'
             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Sanketika Polytechnic College &amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             width="100%"
             height="400"
@@ -98,7 +101,7 @@ const Contact = () => {
           </div>
           <div className="detail-item">
             <h3>Phone</h3>
-            <p>+91 123 456 7890</p>
+            <p>+91 7095835048</p>
           </div>
           <div className="detail-item">
             <h3>Email</h3>

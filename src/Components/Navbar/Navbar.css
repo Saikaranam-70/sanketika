@@ -326,7 +326,7 @@ nav ul li{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -393,6 +393,7 @@ nav ul li{
 .dropdown {
   position: relative;
   color: rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .dropdown-content {
@@ -499,6 +500,7 @@ nav ul li{
   .nav_menu {
     display: none;
     z-index: 1000;
+
   }
   .dropdown{
     color: white;
@@ -514,13 +516,14 @@ nav ul li{
 
   .nav_menu_mobile.show {
     display: flex;
+    
   }
 }
 
 @media (max-width: 480px) {
   .nav {
     padding: 10px;
-    z-index: 1000;
+    z-index: 10;
   }
   .dropdown{
     color: white;
@@ -547,6 +550,6 @@ nav ul li{
     top: 60px;
     right: 10px;
     padding: 15px;
-    z-index: 1000;
+    z-index: 10;
   }
 }
