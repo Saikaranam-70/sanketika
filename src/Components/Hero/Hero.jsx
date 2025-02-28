@@ -47,7 +47,7 @@ const Hero = () => {
         </p>
         <Link to='/courses'>
         <button className="courses-offer" data-aos="fade-left">
-            Courses We Offer jhivurgre
+            Courses We Offer
         </button>
         </Link>
       </div>
