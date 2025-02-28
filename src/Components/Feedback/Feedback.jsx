@@ -11,7 +11,10 @@ const Feedback = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
+
         const response = await fetch(`${API_URL}/feedback/all`);
+
+
         if (!response.ok) {
           throw new Error('Failed to fetch feedbacks');
         }
