@@ -72,7 +72,7 @@ const Contact = () => {
         </p>
         <div className="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.231230874035!2d83.218485315355!3d17.530902299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3411c7a2b5f8d5%3A0x5f5f5f5f5f5f5f5f!2sSanketika%20Polytechnic%20College!5e0!3m2!1sen!2sin!4v1633080000000!5m2!1sen!2sin"
+            src="https://maps.app.goo.gl/A7gTqLzngKeYsjT2A"
             width="100%"
             height="400"
             style={{ border: 0 }}
