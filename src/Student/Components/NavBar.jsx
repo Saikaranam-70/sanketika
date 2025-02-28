@@ -14,6 +14,10 @@ const NavBar = ({
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+  const handleNavigation = (callback) => {
+    callback(); // Execute the passed function (like handleFeedBack or handleAllFeedBacks)
+    setIsSidebarVisible(false); // Close sidebar after navigation
+  };
 
   return (
     <div className="container">
@@ -42,10 +46,10 @@ const NavBar = ({
 
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarVisible ? 'active' : ''}`}>
-        <div className="AddHod" onClick={handleFeedBack}>
+        <div className="AddHod" onClick={()=>handleNavigation(handleFeedBack)}>
           <h4>Add Feedback</h4>
         </div>
-        <div className="AddEvents" onClick={handleAllFeedBacks}>
+        <div className="AddEvents" onClick={()=>handleNavigation(handleAllFeedBacks)}>
           <h4>All Feedbacks</h4>
         </div>
       </div>

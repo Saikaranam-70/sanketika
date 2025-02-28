@@ -21,6 +21,11 @@ const Navbar = ({
     setIsSidebarVisible(!isSidebarVisible);
   };
 
+  const handleNavigation = (callback) => {
+    callback(); // Execute the passed function (like handleFeedBack or handleAllFeedBacks)
+    setIsSidebarVisible(false); // Close sidebar after navigation
+  };
+
   return (
     <div className="container">
       {/* Navbar */}
@@ -47,28 +52,28 @@ const Navbar = ({
 
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarVisible ? 'active' : ''}`}>
-        <div className="AddHod" onClick={showStudentHandler}>
+        <div className="AddHod" onClick={()=>handleNavigation(showStudentHandler)}>
           <h4>Add Student</h4>
         </div>
-        <div className="AddEvents" onClick={showFeeDueHandler}>
+        <div className="AddEvents" onClick={()=>handleNavigation(showFeeDueHandler)}>
           <h4>Add Fee Due</h4>
         </div>
-        <div className="AddNotifiCations" onClick={showAttendenceHandler}>
+        <div className="AddNotifiCations" onClick={()=>handleNavigation(showAttendenceHandler)}>
           <h4>Add Attendance</h4>
         </div>
-        <div className="All-Events" onClick={showTimetableHandler}>
+        <div className="All-Events" onClick={()=>handleNavigation(showTimetableHandler)}>
           <h4>Add Time Tables</h4>
         </div>
-        <div className="All-Notifications" onClick={showAllStudentHandler}>
+        <div className="All-Notifications" onClick={()=>handleNavigation(showAllStudentHandler)}>
           <h4>All Students</h4>
         </div>
-        <div className="All-Notifications" onClick={showAllTimetableHandler}>
+        <div className="All-Notifications" onClick={()=>handleNavigation(showAllTimetableHandler)}>
           <h4>All Time Tables</h4>
         </div>
-        <div className="All-Notifications" onClick={showAllFeeDueHandler}>
+        <div className="All-Notifications" onClick={()=>handleNavigation(showAllFeeDueHandler)}>
           <h4>All Fee Due</h4>
         </div>
-        <div className="All-Notifications" onClick={showAllAttendenceHandler}>
+        <div className="All-Notifications" onClick={()=>handleNavigation(showAllAttendenceHandler)}>
           <h4>All Attendance</h4>
         </div>
       </div>

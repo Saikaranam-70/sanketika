@@ -45,6 +45,10 @@ const NavBar = ({
     setIsSidebarVisible(!isSidebarVisible);
   };
 
+  const handleNavigation = (callback) => {
+    callback(); // Execute the passed function (like handleFeedBack or handleAllFeedBacks)
+    setIsSidebarVisible(false); // Close sidebar after navigation
+  };
   return (
     <div className="container">
       {/* Navbar */}
@@ -75,22 +79,22 @@ const NavBar = ({
 
       {/* Sidebar */}
       <div className={`sidebar ${isSidebarVisible ? 'active' : ''}`}>
-        <div className="AddHod" onClick={showAddHodHandler}>
+        <div className="AddHod" onClick={()=>handleNavigation(showAddHodHandler)}>
           <h4>Add HOD</h4>
         </div>
-        <div className="AddEvents" onClick={showEventHandler}>
+        <div className="AddEvents" onClick={()=>handleNavigation(showEventHandler)}>
           <h4>Add Events</h4>
         </div>
-        <div className="AddNotifiCations" onClick={showNotificationHandler}>
+        <div className="AddNotifiCations" onClick={()=>handleNavigation(showNotificationHandler)}>
           <h4>Add Notifications</h4>
         </div>
-        <div className="All-Events" onClick={showAllEventHandler}>
+        <div className="All-Events" onClick={()=>handleNavigation(showAllEventHandler)}>
           <h4>All Notifications</h4>
         </div>
-        <div className="All-Notifications" onClick={showAllNotificationsHandler}>
+        <div className="All-Notifications" onClick={()=>handleNavigation(showAllNotificationsHandler)}>
           <h4>All Events</h4>
         </div>
-        <div className="All-HODs" onClick={showAllHodHandler}>
+        <div className="All-HODs" onClick={()=>handleNavigation(showAllHodHandler)}>
           <h4>All HOD's</h4>
         </div>
       </div>
