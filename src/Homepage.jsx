@@ -67,10 +67,10 @@ const HomePage = () => {
         <Route path='/events' element={<Evens />} />
         <Route path='/attendence' element={<Attendence />} />
         <Route path='/feedback' element={<Feedback />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
-      
-      
       <Video video={video} setVideo={setVideo}/>
+      
     </div>
     
     </>

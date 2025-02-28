@@ -99,7 +99,8 @@ const Navbar = () => {
     {name:"Attendence", link:"/attendence"},
     {name:"Events", link:"/events"},
     {name:"Feedback", link:"/feedback"
-    }
+    },
+    {name:"contact", link:"/contact"}
   ]
   const about = [
     { name: "About Us", link: "/about-us" },
