@@ -39,7 +39,18 @@ const Hero = () => {
   return (
     <div className='home'>
       <div className="home-section">
-        <h1 className="clg-Head" data-aos="fade-up">
+        <h1 className="head">Sanketika Annual Day Cultural Events</h1>
+        <div className="events">
+          <button className="event1">Tech Events</button>
+          <button className="event2">Cultural Events</button>
+          <button className="event3">Sports</button>
+          <button className="event4">Student Co-ordinator Registration</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+{/* <h1 className="clg-Head" data-aos="fade-up">
         We Ensure better education <br />for a better world
         </h1>
         <p className="clg-description" data-aos="fade-down">
@@ -49,10 +60,6 @@ const Hero = () => {
         <button className="courses-offer" data-aos="fade-left">
             Courses We Offer 
         </button>
-        </Link>
-      </div>
-    </div>
-  )
-}
+        </Link> */}
 
 export default Hero

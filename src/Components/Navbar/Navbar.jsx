@@ -186,12 +186,12 @@ const Navbar = () => {
           </div>
 
           {/* Login Dropdown */}
-          <Dropdown
+          {/* <Dropdown
             title="Login"
             items={loginOptions}
             isOpen={loginOpen}
             toggle={toggleLogin}
-          />
+          /> */}
         </div>
       </div>
 
@@ -262,12 +262,12 @@ const Navbar = () => {
         </div>
 
         {/* Login Dropdown for Mobile */}
-        <Dropdown
+        {/* <Dropdown
           title="Login"
           items={loginOptions}
           isOpen={loginOpen}
           toggle={toggleLogin}
-        />
+        /> */}
       </div>
     </div>
   );
