@@ -1,7 +1,7 @@
 // import React from 'react'
 // import './Hero.css'
 // import dark_arrow from '../../assets/dark-arrow.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 // const Hero = () => {
 //   return (
@@ -28,7 +28,9 @@ import Navbar from '../Navbar/Navbar'
 import 'aos/dist/aos.css';
 import Aos from 'aos';
 
+
 const Hero = () => {
+  const navigate = useNavigate()
   useEffect(()=>{
     Aos.init({
       duration: 500,
@@ -41,9 +43,9 @@ const Hero = () => {
       <div className="home-section">
         <h1 className="head">Sanketika Annual Day Cultural Events</h1>
         <div className="events">
-          <button className="event1">Tech Events</button>
+          <button className="event1" >Tech Events</button>
           <button className="event2">Cultural Events</button>
-          <button className="event3">Sports</button>
+          <button className="event3" onClick={()=> navigate("/annual-day/sportsregisration")}>Sports</button>
           <button className="event4">Student Co-ordinator Registration</button>
         </div>
       </div>

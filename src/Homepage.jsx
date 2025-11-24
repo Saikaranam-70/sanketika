@@ -31,6 +31,8 @@ import Evens from './Components/Events/Evens'
 import Attendence from './Components/Attendence/Attendence'
 
 import Feedback from './Components/Feedback/Feedback'
+import Sport from './Components/AnnualDay/Sports/Sport'
+import BoysSports from './Components/AnnualDay/Sports/Boy/BoysSports'
 
 
 const HomePage = () => {
@@ -68,6 +70,8 @@ const HomePage = () => {
         <Route path='/attendence' element={<Attendence />} />
         <Route path='/feedback' element={<Feedback />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/annual-day/sportsregisration' element={<Sport />} />
+        <Route path='/annual-day/sportsregisration/boys' element={<BoysSports />} />
       </Routes>
       <Video video={video} setVideo={setVideo}/>
       

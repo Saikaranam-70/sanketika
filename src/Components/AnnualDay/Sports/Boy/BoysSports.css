@@ -1,0 +1,305 @@
+/* BoysSports.css */
+.boys-sports-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Styles */
+.sports-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) translateX(-5px);
+}
+
+.sports-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sports-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}
+
+/* Sports Selection Grid */
+.sports-selection {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sport-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.sport-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.sport-card:hover::before {
+  left: 100%;
+}
+
+.sport-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.sport-card.selected {
+  border-color: #4facfe;
+  background: rgba(79, 172, 254, 0.15);
+  transform: scale(1.02);
+}
+
+.sport-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.sport-name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.sport-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.select-indicator {
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sport-card.selected .select-indicator {
+  background: #4facfe;
+  color: white;
+}
+
+/* Confirmation Section */
+.confirmation-section {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  margin-top: 2rem;
+}
+
+.confirmation-section p {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.proceed-button {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  border: none;
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.proceed-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Container */
+.form-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.form-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.google-form-wrapper {
+  padding: 0;
+  background: white;
+}
+
+.google-form {
+  border: none;
+  display: block;
+}
+
+.form-footer {
+  padding: 1.5rem;
+  text-align: center;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.form-footer a {
+  color: #4facfe;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .boys-sports-container {
+    padding: 1rem;
+  }
+
+  .sports-title {
+    font-size: 2.2rem;
+  }
+
+  .sports-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sport-card {
+    padding: 2rem;
+  }
+
+  .sport-icon {
+    font-size: 3rem;
+  }
+
+  .sport-name {
+    font-size: 1.7rem;
+  }
+
+  .back-button {
+    position: relative;
+    margin-bottom: 1rem;
+    transform: none;
+  }
+
+  .back-button:hover {
+    transform: translateX(-5px);
+  }
+
+  .form-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sports-title {
+    font-size: 1.8rem;
+  }
+
+  .sport-card {
+    padding: 1.5rem;
+  }
+
+  .sport-name {
+    font-size: 1.5rem;
+  }
+
+  .proceed-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sports-grid,
+.confirmation-section,
+.form-container {
+  animation: fadeIn 0.6s ease-out;
+}
