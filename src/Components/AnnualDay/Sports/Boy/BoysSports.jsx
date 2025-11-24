@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './BoysSports.css';
+import { useNavigate } from 'react-router';
 
 const BoysSports = () => {
   const [selectedSport, setSelectedSport] = useState(null);
   const [showForm, setShowForm] = useState(false);
-
+  const navigate = useNavigate()
   // Google Form URLs (replace with your actual form URLs)
   const formUrls = {
     cricket: "https://docs.google.com/forms/d/e/1FAIpQLSd0HV0dwXhSmiaxFr3pUVIqOTnhzP9PftVo9CZfS4buwPs3sQ/viewform?usp=dialog",
@@ -44,7 +45,8 @@ const BoysSports = () => {
           <div className="sports-grid">
             <div 
               className={`sport-card ${selectedSport === 'cricket' ? 'selected' : ''}`}
-              onClick={() => handleSportSelect('cricket')}
+            //   onClick={() => handleSportSelect('cricket')}
+            onClick={()=>window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSd0HV0dwXhSmiaxFr3pUVIqOTnhzP9PftVo9CZfS4buwPs3sQ/viewform?usp=dialog"}
             >
               <div className="sport-icon">🏏</div>
               <h3 className="sport-name">Cricket</h3>
