@@ -46,7 +46,7 @@ const BoysSports = () => {
             <div 
               className={`sport-card ${selectedSport === 'cricket' ? 'selected' : ''}`}
             //   onClick={() => handleSportSelect('cricket')}
-            onClick={()=>window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSd0HV0dwXhSmiaxFr3pUVIqOTnhzP9PftVo9CZfS4buwPs3sQ/viewform?usp=dialog"}
+            onClick={()=>window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSdwRhoT7PuXOcpgIgbEQEp1r7LRTZ9ohOiqpQIwhY3NkIpJPQ/viewform?usp=publish-editor"}
             >
               <div className="sport-icon">🏏</div>
               <h3 className="sport-name">Cricket</h3>
