@@ -59,7 +59,7 @@ const BoysSports = () => {
     className="payment-button"
     onClick={() =>
       window.location.href =
-        "upi://pay?pa=7095835048@ybl&pn=KARANAM%20SAI%20MANIKANTA&tn=Cricket%20Sports%20Fee&am=1&cu=INR"
+        "upi://pay?pa=8790827205@axl&pn=Ponnana%20Saikumar%20&tn=Cricket%20Sports%20Fee&am=1&cu=INR"
     }
   >
     💳 Pay
