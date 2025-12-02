@@ -12,7 +12,7 @@ const Sport = () => {
       </div>
       
       <div className="options">
-        <button className="option-btn girl-btn">
+        <button className="option-btn girl-btn" onClick={()=>navigate("/annual-day/sportsregisration/girls")}>
           <span className="btn-icon">♀</span>
           <span className="btn-text">Girls</span>
         </button>

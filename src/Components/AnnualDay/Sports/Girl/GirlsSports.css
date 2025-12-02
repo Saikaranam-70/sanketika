@@ -303,34 +303,3 @@
 .form-container {
   animation: fadeIn 0.6s ease-out;
 }
-.payment-button {
-  background-color: #ff9800;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 14px;
-  width: 100%;
-}
-
-.payment-button:hover {
-  background-color: #f57c00;
-}
-
-.fill-form-button {
-  background-color: #2196f3;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.fill-form-button:hover {
-  background-color: #1976d2;
-}

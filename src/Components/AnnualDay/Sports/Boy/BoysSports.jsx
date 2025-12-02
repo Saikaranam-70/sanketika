@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import './BoysSports.css';
-import { useNavigate } from 'react-router';
+import React, { useState } from "react";
+import "./BoysSports.css";
+import { useNavigate } from "react-router";
 
 const BoysSports = () => {
   const [selectedSport, setSelectedSport] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // Google Form URLs (replace with your actual form URLs)
   const formUrls = {
-    cricket: "https://docs.google.com/forms/d/e/1FAIpQLSd0HV0dwXhSmiaxFr3pUVIqOTnhzP9PftVo9CZfS4buwPs3sQ/viewform?usp=dialog",
-    volleyball: "https://docs.google.com/forms/d/e/1FAIpQLSdEXAMPLE_VOLLEYBALL_FORM/viewform?embedded=true"
+    cricket:
+      "https://docs.google.com/forms/d/e/1FAIpQLSd0HV0dwXhSmiaxFr3pUVIqOTnhzP9PftVo9CZfS4buwPs3sQ/viewform?usp=dialog",
+    volleyball:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdEXAMPLE_VOLLEYBALL_FORM/viewform?embedded=true",
   };
 
   const handleSportSelect = (sport) => {
@@ -44,35 +46,68 @@ const BoysSports = () => {
         <div className="sports-selection">
           <div className="sports-grid">
             <div 
-              className={`sport-card ${selectedSport === 'cricket' ? 'selected' : ''}`}
-            //   onClick={() => handleSportSelect('cricket')}
-            onClick={()=>window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSdwRhoT7PuXOcpgIgbEQEp1r7LRTZ9ohOiqpQIwhY3NkIpJPQ/viewform?usp=publish-editor"}
-            >
-              <div className="sport-icon">🏏</div>
-              <h3 className="sport-name">Cricket</h3>
-              <p className="sport-description">Join the cricket team and showcase your batting and bowling skills</p>
-              <div className="select-indicator">
-                {selectedSport === 'cricket' ? '✓ Selected' : 'Click to select'}
-              </div>
-            </div>
+  className={`sport-card ${selectedSport === 'cricket' ? 'selected' : ''}`}
+>
+  <div className="sport-icon">🏏</div>
+  <h3 className="sport-name">Cricket</h3>
+  <p className="sport-description">
+    Join the cricket team and showcase your batting and bowling skills
+  </p>
 
-            <div 
-              className={`sport-card ${selectedSport === 'volleyball' ? 'selected' : ''}`}
-              onClick={() => handleSportSelect('volleyball')}
+  {/* PAYMENT BUTTON */}
+  <button 
+    className="payment-button"
+    onClick={() =>
+      window.location.href =
+        "upi://pay?pa=7095835048@ybl&pn=KARANAM%20SAI%20MANIKANTA&tn=Cricket%20Sports%20Fee&am=1&cu=INR"
+    }
+  >
+    💳 Pay
+  </button>
+
+  {/* FILL FORM BUTTON */}
+  <div className="select-indicator">
+    <button
+      className="fill-form-button"
+      onClick={() =>
+        (window.location.href =
+          "https://docs.google.com/forms/d/e/1FAIpQLSdwRhoT7PuXOcpgIgbEQEp1r7LRTZ9ohOiqpQIwhY3NkIpJPQ/viewform?usp=publish-editor")
+      }
+    >
+      📝 Fill Form
+    </button>
+  </div>
+</div>
+
+
+            <div
+              className={`sport-card ${
+                selectedSport === "volleyball" ? "selected" : ""
+              }`}
+              onClick={() =>
+                (window.location.href =
+                  "https://docs.google.com/forms/d/e/1FAIpQLScOIcwINRngBlB9MpRcTqBLNnfWQQy1t11Q4-gJQ1iuhwhJ0A/viewform?usp=publish-editor")
+              }
             >
               <div className="sport-icon">🏐</div>
               <h3 className="sport-name">Volleyball</h3>
-              <p className="sport-description">Show your teamwork and spiking skills on the volleyball court</p>
+              <p className="sport-description">
+                Show your teamwork and spiking skills on the volleyball court
+              </p>
               <div className="select-indicator">
-                {selectedSport === 'volleyball' ? '✓ Selected' : 'Click to select'}
+                {selectedSport === "volleyball"
+                  ? "✓ Selected"
+                  : "Click to select"}
               </div>
             </div>
           </div>
 
           {selectedSport && (
             <div className="confirmation-section">
-              <p>You selected: <strong>{selectedSport.toUpperCase()}</strong></p>
-              <button 
+              <p>
+                You selected: <strong>{selectedSport.toUpperCase()}</strong>
+              </p>
+              <button
                 className="proceed-button"
                 onClick={() => setShowForm(true)}
               >
@@ -93,7 +128,7 @@ const BoysSports = () => {
             <h2>{selectedSport.toUpperCase()} Registration Form</h2>
             <p>Please fill out the form below to complete your registration</p>
           </div>
-          
+
           <div className="google-form-wrapper">
             <iframe
               src={formUrls[selectedSport]}
@@ -110,7 +145,16 @@ const BoysSports = () => {
           </div>
 
           <div className="form-footer">
-            <p>Having trouble with the form? <a href={formUrls[selectedSport]} target="_blank" rel="noopener noreferrer">Open in new tab</a></p>
+            <p>
+              Having trouble with the form?{" "}
+              <a
+                href={formUrls[selectedSport]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in new tab
+              </a>
+            </p>
           </div>
         </div>
       )}
