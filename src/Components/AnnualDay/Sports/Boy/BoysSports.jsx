@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./BoysSports.css";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import qrImage from '../../../../assets/upi.png'
 
 const BoysSports = () => {

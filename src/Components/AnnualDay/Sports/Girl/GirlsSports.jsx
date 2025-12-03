@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './GirlsSports.css';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const GirlsSports = () => {
   const [selectedSport, setSelectedSport] = useState(null);

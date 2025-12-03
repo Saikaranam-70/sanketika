@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sport.css';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const Sport = () => {
     const navigate = useNavigate()
