@@ -34,6 +34,7 @@ import Feedback from './Components/Feedback/Feedback'
 import Sport from './Components/AnnualDay/Sports/Sport'
 import BoysSports from './Components/AnnualDay/Sports/Boy/BoysSports'
 import GirlsSports from './Components/AnnualDay/Sports/Girl/GirlsSports'
+import TechEvents from './Components/AnnualDay/TechEvents/TechEvents'
 
 
 const HomePage = () => {
@@ -74,6 +75,7 @@ const HomePage = () => {
         <Route path='/annual-day/sportsregisration' element={<Sport />} />
         <Route path='/annual-day/sportsregisration/boys' element={<BoysSports />} />
         <Route path='/annual-day/sportsregisration/girls' element={<GirlsSports />} />
+        <Route path='/annual-day/techeventsregistration' element={<TechEvents />} />
       </Routes>
       <Video video={video} setVideo={setVideo}/>
       

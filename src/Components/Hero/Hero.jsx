@@ -43,7 +43,7 @@ const Hero = () => {
       <div className="home-section">
         <h1 className="head">Sanketika Annual Day Cultural Events</h1>
         <div className="events">
-          <button className="event1" onClick={()=>window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSe5o_XicHwnWfwDe9H6LlCgGFZxwFyjXYuVWjZjyseRvd86ZQ/viewform?usp=publish-editor"}>Tech Events</button>
+          <button className="event1" onClick={()=>navigate("/annual-day/techeventsregistration")}>Tech Events</button>
           <button className="event2" onClick={()=> window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSejh68XawJOcyCHfYioD1ME4WRstz4WeJXIdOQjsJ4JsYA5AQ/viewform?usp=publish-editor"}>Cultural Events</button>
           <button className="event3" onClick={()=> navigate("/annual-day/sportsregisration")}>Sports</button>
           <button className="event4" onClick={()=>window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeakGS5ygKwTjmKDY_OAUDjtrPqDygXBmlRYol4oui7T03Xjg/viewform?usp=publish-editor"}>Student Co-ordinator Registration</button>

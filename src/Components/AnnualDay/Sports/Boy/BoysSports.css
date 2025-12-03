@@ -334,3 +334,73 @@
 .fill-form-button:hover {
   background-color: #1976d2;
 }
+
+.captain-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* QR Overlay */
+.qr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+/* QR Popup */
+.qr-popup {
+  background: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.qr-amount {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.qr-image {
+  width: 260px;
+  height: 260px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.qr-note {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.qr-close {
+  margin-top: 10px;
+  padding: 10px;
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.qr-close:hover {
+  background: #d93636;
+}

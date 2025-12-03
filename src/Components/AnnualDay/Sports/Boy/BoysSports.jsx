@@ -1,17 +1,31 @@
 import React, { useState } from "react";
 import "./BoysSports.css";
 import { useNavigate } from "react-router";
+import qrImage from '../../../../assets/upi.png'
 
 const BoysSports = () => {
   const [selectedSport, setSelectedSport] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [showQR, setShowQR] = useState(false);
+
   const navigate = useNavigate();
-  // Google Form URLs (replace with your actual form URLs)
+  const [captainName, setCaptainName] = useState("");
+  const [captainPhone, setCaptainPhone] = useState("");
+
+  // Replace with your QR image URL
+  // const qrImage = "https://your-qr-image-url.png"; 
+  const paymentAmount = 1000;
+
+  // Google Form URLs
   const formUrls = {
     cricket:
-      "https://docs.google.com/forms/d/e/1FAIpQLSd0HV0dwXhSmiaxFr3pUVIqOTnhzP9PftVo9CZfS4buwPs3sQ/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdwRhoT7PuXOcpgIgbEQEp1r7LRTZ9ohOiqpQIwhY3NkIpJPQ/viewform?usp=publish-editor",
     volleyball:
-      "https://docs.google.com/forms/d/e/1FAIpQLSdEXAMPLE_VOLLEYBALL_FORM/viewform?embedded=true",
+      "https://docs.google.com/forms/d/e/1FAIpQLScOIcwINRngBlB9MpRcTqBLNnfWQQy1t11Q4-gJQ1iuhwhJ0A/viewform?usp=publish-editor",
+  };
+
+  const handleCricketPayment = () => {
+    setShowQR(true); // open QR popup
   };
 
   const handleSportSelect = (sport) => {
@@ -27,138 +41,135 @@ const BoysSports = () => {
   const handleBackToGender = () => {
     setSelectedSport(null);
     setShowForm(false);
-    // You can add callback to parent component here if needed
   };
 
   return (
-    <div className="boys-sports-container">
-      {/* Header */}
-      <div className="sports-header">
-        <button className="back-button" onClick={handleBackToGender}>
-          ← Back
-        </button>
-        <h1 className="sports-title">Boys Sports</h1>
-        <p className="sports-subtitle">Choose your preferred sport</p>
-      </div>
+    <>
+      {/* QR PAYMENT POPUP */}
+      {showQR && (
+        <div className="qr-overlay">
+          <div className="qr-popup">
+            <h2>Scan & Pay</h2>
+            <p className="qr-amount">Amount: ₹{paymentAmount}</p>
 
-      {/* Sport Selection */}
-      {!showForm && (
-        <div className="sports-selection">
-          <div className="sports-grid">
-            <div 
-  className={`sport-card ${selectedSport === 'cricket' ? 'selected' : ''}`}
->
-  <div className="sport-icon">🏏</div>
-  <h3 className="sport-name">Cricket</h3>
-  <p className="sport-description">
-    Join the cricket team and showcase your batting and bowling skills
-  </p>
+            <img src={qrImage} alt="UPI QR Code" className="qr-image" />
 
-  {/* PAYMENT BUTTON */}
-  <button 
-    className="payment-button"
-    onClick={() =>
-      window.location.href =
-        "intent://pay?pa=8790827205@axl&pn=Ponnana%20Saikumar&am=1&tn=Cricket%20Sports%20Fee&cu=INR#Intent;scheme=upi;end;"
-    }
-  >
-    💳 Pay
-  </button>
+            <p className="qr-note">
+              After payment, take a screenshot and upload it in the form along with UTR Number.
+            </p>
 
-  {/* FILL FORM BUTTON */}
-  <div className="select-indicator">
-    <button
-      className="fill-form-button"
-      onClick={() =>
-        (window.location.href =
-          "https://docs.google.com/forms/d/e/1FAIpQLSdwRhoT7PuXOcpgIgbEQEp1r7LRTZ9ohOiqpQIwhY3NkIpJPQ/viewform?usp=publish-editor")
-      }
-    >
-      📝 Fill Form
-    </button>
-  </div>
-</div>
-
-
-            <div
-              className={`sport-card ${
-                selectedSport === "volleyball" ? "selected" : ""
-              }`}
-              onClick={() =>
-                (window.location.href =
-                  "https://docs.google.com/forms/d/e/1FAIpQLScOIcwINRngBlB9MpRcTqBLNnfWQQy1t11Q4-gJQ1iuhwhJ0A/viewform?usp=publish-editor")
-              }
+            <button
+              className="fill-form-button"
+              onClick={() => {
+                window.open(formUrls.cricket, "_blank");
+                setShowQR(false);
+              }}
             >
-              <div className="sport-icon">🏐</div>
-              <h3 className="sport-name">Volleyball</h3>
-              <p className="sport-description">
-                Show your teamwork and spiking skills on the volleyball court
-              </p>
-              <div className="select-indicator">
-                {selectedSport === "volleyball"
-                  ? "✓ Selected"
-                  : "Click to select"}
+              I Completed Payment → Fill Form
+            </button>
+
+            <button className="qr-close" onClick={() => setShowQR(false)}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* MAIN PAGE */}
+      <div className="boys-sports-container">
+        {/* Header */}
+        <div className="sports-header">
+          <button className="back-button" onClick={handleBackToGender}>
+            ← Back
+          </button>
+          <h1 className="sports-title">Boys Sports</h1>
+          <p className="sports-subtitle">Choose your preferred sport</p>
+        </div>
+
+        {/* Sport Selection */}
+        {!showForm && (
+          <div className="sports-selection">
+            <div className="sports-grid">
+              {/* Cricket Card */}
+              <div
+                className={`sport-card ${
+                  selectedSport === "cricket" ? "selected" : ""
+                }`}
+              >
+                <div className="sport-icon">🏏</div>
+                <h3 className="sport-name">Cricket</h3>
+                <p className="sport-description">
+                  Join the cricket team and showcase your batting and bowling
+                  skills
+                </p>
+
+                {/* PAYMENT BUTTON */}
+                <button className="payment-button" onClick={handleCricketPayment}>
+                  💳 Pay ₹1000
+                </button>
+
+                {/* FILL FORM BUTTON */}
+                {/* <div className="select-indicator">
+                  <button
+                    className="fill-form-button"
+                    onClick={() => window.open(formUrls.cricket, "_blank")}
+                  >
+                    📝 Fill Form
+                  </button>
+                </div> */}
+              </div>
+
+              {/* Volleyball Card */}
+              <div
+                className={`sport-card ${
+                  selectedSport === "volleyball" ? "selected" : ""
+                }`}
+                onClick={() => window.open(formUrls.volleyball, "_blank")}
+              >
+                <div className="sport-icon">🏐</div>
+                <h3 className="sport-name">Volleyball</h3>
+                <p className="sport-description">
+                  Show your teamwork and spiking skills on the volleyball court
+                </p>
+                <div className="select-indicator">
+                  {selectedSport === "volleyball"
+                    ? "✓ Selected"
+                    : "Click to select"}
+                </div>
               </div>
             </div>
           </div>
+        )}
 
-          {selectedSport && (
-            <div className="confirmation-section">
-              <p>
-                You selected: <strong>{selectedSport.toUpperCase()}</strong>
-              </p>
-              <button
-                className="proceed-button"
-                onClick={() => setShowForm(true)}
-              >
-                Proceed to Registration Form →
+        {/* Google Form */}
+        {showForm && selectedSport && (
+          <div className="form-container">
+            <div className="form-header">
+              <button className="back-button" onClick={handleBackToSports}>
+                ← Back to Sports
               </button>
+              <h2>{selectedSport.toUpperCase()} Registration Form</h2>
+              <p>Please fill out the form below to complete your registration</p>
             </div>
-          )}
-        </div>
-      )}
 
-      {/* Google Form */}
-      {showForm && selectedSport && (
-        <div className="form-container">
-          <div className="form-header">
-            <button className="back-button" onClick={handleBackToSports}>
-              ← Back to Sports
-            </button>
-            <h2>{selectedSport.toUpperCase()} Registration Form</h2>
-            <p>Please fill out the form below to complete your registration</p>
-          </div>
-
-          <div className="google-form-wrapper">
-            <iframe
-              src={formUrls[selectedSport]}
-              width="100%"
-              height="800"
-              frameBorder="0"
-              marginHeight="0"
-              marginWidth="0"
-              title={`${selectedSport} Registration Form`}
-              className="google-form"
-            >
-              Loading…
-            </iframe>
-          </div>
-
-          <div className="form-footer">
-            <p>
-              Having trouble with the form?{" "}
-              <a
-                href={formUrls[selectedSport]}
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="google-form-wrapper">
+              <iframe
+                src={formUrls[selectedSport]}
+                width="100%"
+                height="800"
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                title={`${selectedSport} Registration Form`}
+                className="google-form"
               >
-                Open in new tab
-              </a>
-            </p>
+                Loading…
+              </iframe>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

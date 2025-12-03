@@ -1,0 +1,186 @@
+/* Container */
+.tech-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+/* Title */
+.tech-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.tech-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+/* Buttons Grid */
+.tech-buttons {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Event Button Card */
+.tech-btn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Shine animation */
+.tech-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.tech-btn:hover::before {
+  left: 120%;
+}
+
+.tech-btn:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Icons */
+.tech-icon {
+  font-size: 2.5rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .tech-title {
+    font-size: 2.2rem;
+  }
+
+  .tech-btn {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+  }
+}
+
+/* ----------------------- */
+/*   Responsive Design     */
+/* ----------------------- */
+
+/* Large Tablets / Small Laptops */
+@media (max-width: 1024px) {
+  .tech-title {
+    font-size: 2.7rem;
+  }
+
+  .tech-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .tech-buttons {
+    gap: 1.5rem;
+  }
+
+  .tech-btn {
+    padding: 1.8rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* Tablets (Landscape & Portrait) */
+@media (max-width: 768px) {
+  .tech-container {
+    padding: 1.5rem;
+  }
+
+  .tech-title {
+    font-size: 2.4rem;
+  }
+
+  .tech-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tech-btn {
+    padding: 1.6rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* Large Phones */
+@media (max-width: 600px) {
+  .tech-title {
+    font-size: 2rem;
+  }
+
+  .tech-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tech-buttons {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .tech-btn {
+    padding: 1.4rem;
+    font-size: 1.2rem;
+    border-radius: 16px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 420px) {
+  .tech-title {
+    font-size: 1.7rem;
+  }
+
+  .tech-btn {
+    padding: 1.2rem;
+    font-size: 1.05rem;
+    gap: 10px;
+  }
+
+  .tech-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 340px) {
+  .tech-btn {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+}
