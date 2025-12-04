@@ -9,17 +9,32 @@ const TechEvents = () => {
       <p className="tech-subtitle">Choose an event to participate in</p>
 
       <div className="tech-buttons">
-        <button className="tech-btn">
+        <button className="tech-btn" onClick={()=>{
+          window.open(
+            "https://docs.google.com/forms/d/e/1FAIpQLSeDSCydRd25z56iiLRrzlgcdP0KBLRGZcUnKU000BT9A5Hc5Q/viewform?usp=publish-editor",
+            "_blank"
+          )
+        }}>
           <span className="tech-icon">📄</span>
           Paper Presentation
         </button>
 
-        <button className="tech-btn" onClick={()=> window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSe5o_XicHwnWfwDe9H6LlCgGFZxwFyjXYuVWjZjyseRvd86ZQ/viewform?usp=publish-editor"}>
+        <button className="tech-btn" onClick={()=>{
+          window.open(
+            "https://docs.google.com/forms/d/e/1FAIpQLSe5o_XicHwnWfwDe9H6LlCgGFZxwFyjXYuVWjZjyseRvd86ZQ/viewform?usp=publish-editor",
+            "_blank"
+          )
+        }}>
           <span className="tech-icon">🖼️</span>
           Poster Presentation
         </button>
 
-        <button className="tech-btn">
+        <button className="tech-btn" onClick={()=>{
+          window.open(
+            "https://docs.google.com/forms/d/e/1FAIpQLSeSofwN4c-KAI-q-P75AOQnkWTkXTyusnb5DSx3GJbGN-YsaQ/viewform?usp=publish-editor",
+            "_blank"
+          )
+        }}>
           <span className="tech-icon">💡</span>
           Project Expo
         </button>
